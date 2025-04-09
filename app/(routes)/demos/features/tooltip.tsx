@@ -125,6 +125,19 @@ const TooltipContent = React.forwardRef<
   const context = useTooltipContext(CONTENT_NAME);
   const runningOnClient = typeof document !== "undefined";
   const tooltipRef = React.useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    if (context.tooltip) {
+      // Small delay to ensure proper positioning
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 10);
+      return () => clearTimeout(timer);
+    } else {
+      setIsVisible(false);
+    }
+  }, [context.tooltip]);
 
   // Calculate position based on viewport
   const getTooltipPosition = () => {
@@ -156,6 +169,7 @@ const TooltipContent = React.forwardRef<
         style={{
           top: context.tooltip.y,
           left: context.tooltip.x + 20,
+          display: isVisible ? "block" : "none",
         }}
       >
         {children}
@@ -164,7 +178,10 @@ const TooltipContent = React.forwardRef<
       <div
         ref={tooltipRef}
         className="fixed z-50 rounded-sm border border-zinc-200 bg-white px-3.5 py-2"
-        style={getTooltipPosition()}
+        style={{
+          ...getTooltipPosition(),
+          display: isVisible ? "block" : "none",
+        }}
       >
         {children}
       </div>
