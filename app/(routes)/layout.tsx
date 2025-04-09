@@ -1,6 +1,7 @@
 import "#/globals.css";
-import Menu from "#/components/navbar";
+
 import Container from "#/components/container";
+import Menu from "#/components/navbar";
 
 export default function RootLayout({
   children,

@@ -1,16 +1,16 @@
 import React, { CSSProperties } from "react";
-import { scaleBand, scaleLinear, max } from "d3";
 
-const data = [
-  { key: "Technology", value: 38.1 },
-  { key: "Financials", value: 25.3 },
-  { key: "Energy", value: 23.1 },
-  { key: "Cyclical", value: 19.5 },
-  { key: "Defensive", value: 14.7 },
-  { key: "Utilities", value: 5.8 },
-].toSorted((a, b) => b.value - a.value);
+import { max, scaleBand, scaleLinear } from "d3";
 
-export default function BarChartHorizontal() {
+import Spinner from "#/components/spinner";
+
+import { TooltipTrigger } from "./tooltip";
+import { TooltipContent } from "./tooltip";
+import { ClientTooltip } from "./tooltip";
+
+export default function BarChart({ data }: { data?: { key: string; value: number }[] }) {
+  if (!data) return <Spinner />;
+
   // Scales
   const yScale = scaleBand()
     .domain(data.map((d) => d.key))
@@ -42,24 +42,28 @@ export default function BarChartHorizontal() {
           const barHeight = yScale.bandwidth();
 
           return (
-            <div
-              key={index}
-              style={{
-                left: "0",
-                top: `${yScale(d.key)}%`,
-                width: `${barWidth}%`,
-                height: `${barHeight}%`,
-                borderRadius: "0 6px 6px 0", // Rounded right corners
-              }}
-              className={`absolute bg-purple-300 dark:bg-purple-400`}
-            />
+            <ClientTooltip key={index}>
+              <TooltipTrigger>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "0",
+                    top: `${yScale(d.key)}%`,
+                    width: `${barWidth}%`,
+                    height: `${barHeight}%`,
+                    borderRadius: "0 6px 6px 0",
+                  }}
+                  className="bg-gradient-to-b from-purple-400 to-purple-600 shadow-inner hover:from-purple-600 hover:to-purple-800"
+                />
+              </TooltipTrigger>
+              <TooltipContent>
+                <div>{d.key}</div>
+                <div className="text-sm text-gray-500">{Math.round(d.value)}</div>
+              </TooltipContent>
+            </ClientTooltip>
           );
         })}
-        <svg
-          className="h-full w-full"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
+        <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           {/* Grid lines */}
           {xScale
             .ticks(8)

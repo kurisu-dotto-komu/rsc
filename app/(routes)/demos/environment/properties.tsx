@@ -14,24 +14,16 @@ const fields = [
 
 type FieldKey = (typeof fields)[number]["key"];
 
-export default function Properties({
-  data,
-}: {
-  data: { [K in FieldKey]: unknown };
-}) {
+export default function Properties({ data }: { data: { [K in FieldKey]: unknown } }) {
   return (
     <div className="overflow-x-auto rounded-md border border-gray-200 bg-white/10">
       <table className="divide-y divide-gray-200">
         <tbody className="divide-y divide-gray-200">
           {fields.map((field) => (
             <tr key={field.key} className="hover:bg-white/40">
-              <td className="p-3 text-sm font-bold whitespace-nowrap">
-                {field.name}
-              </td>
+              <td className="p-3 text-sm font-bold whitespace-nowrap">{field.name}</td>
               <td className="p-3 font-mono text-sm whitespace-nowrap">
-                {typeof data[field.key] === "undefined"
-                  ? "-"
-                  : JSON.stringify(data[field.key])}
+                {typeof data[field.key] === "undefined" ? "-" : JSON.stringify(data[field.key])}
               </td>
             </tr>
           ))}

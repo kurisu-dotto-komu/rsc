@@ -1,9 +1,10 @@
 "use client";
 
-import { demos } from "#/components/navigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+
+import { demos } from "#/components/navigation";
 
 export default function DemosLayout({
   children,
@@ -13,8 +14,7 @@ export default function DemosLayout({
   const pathname = usePathname();
   const currentIndex = demos.findIndex((demo) => demo.path === pathname);
   const prevDemo = currentIndex > 0 ? demos[currentIndex - 1] : null;
-  const nextDemo =
-    currentIndex < demos.length - 1 ? demos[currentIndex + 1] : null;
+  const nextDemo = currentIndex < demos.length - 1 ? demos[currentIndex + 1] : null;
 
   return (
     <div className="flex flex-grow flex-col">

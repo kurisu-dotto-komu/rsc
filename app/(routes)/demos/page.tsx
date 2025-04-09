@@ -1,5 +1,6 @@
-import { demos } from "#/components/navigation";
 import Link from "next/link";
+
+import { demos } from "#/components/navigation";
 
 export default function Home() {
   return (

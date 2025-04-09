@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Container from "./container";
 import { usePathname } from "next/navigation";
+import { RiArrowDownSLine } from "react-icons/ri";
+
+import Container from "./container";
 import { navigation } from "./navigation";
 import { Route, SubMenuItem } from "./navigation";
-
-import { RiArrowDownSLine } from "react-icons/ri";
 
 function NavLink({
   route,
@@ -25,16 +25,12 @@ function NavLink({
       <Link
         href={displayRoute.path}
         className={`inline-flex items-center rounded-md px-2 py-1.5 text-sm font-medium hover:text-gray-900 ${
-          isActive(displayRoute.path)
-            ? "bg-gray-100 text-black"
-            : "text-gray-600"
+          isActive(displayRoute.path) ? "bg-gray-100 text-black" : "text-gray-600"
         }`}
       >
         {displayRoute.icon && <displayRoute.icon className="mr-2" />}
         {displayRoute.name}
-        {route.subMenu && (
-          <RiArrowDownSLine className="ml-1 text-xs opacity-80" />
-        )}
+        {route.subMenu && <RiArrowDownSLine className="ml-1 text-xs opacity-80" />}
       </Link>
 
       {route.subMenu && <SubMenu subMenu={route.subMenu} isActive={isActive} />}
@@ -57,9 +53,7 @@ function SubMenu({
             key={subItem.path}
             href={subItem.path}
             className={`flex items-center px-3 py-1.5 text-sm hover:bg-gray-50 ${
-              isActive(subItem.path)
-                ? "bg-gray-100 text-black"
-                : "text-gray-600"
+              isActive(subItem.path) ? "bg-gray-100 text-black" : "text-gray-600"
             }`}
             role="menuitem"
           >

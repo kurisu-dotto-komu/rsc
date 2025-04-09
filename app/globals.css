@@ -1,30 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-h1 {
-  @apply text-4xl font-bold;
-}
-
-h2 {
-  @apply text-3xl font-semibold;
-}
-
-h3 {
-  @apply text-2xl font-semibold;
-}
-
-h4 {
-  @apply text-xl font-medium;
-}
-
-h5 {
-  @apply text-lg font-medium;
-}
-
-h6 {
-  @apply text-base font-medium;
-}
-
 .btn {
   @apply inline-flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 font-medium transition-all duration-200 ease-in-out;
   @apply border border-gray-200 bg-gray-50 text-gray-700 shadow-sm;
@@ -39,12 +15,4 @@ h6 {
   @apply hover:border-orange-300 hover:bg-orange-100;
   @apply active:border-orange-400 active:bg-orange-200;
   @apply focus:ring-orange-200;
-}
-
-main a {
-  @apply border-b border-dotted border-gray-400 hover:border-gray-600;
-}
-
-main a:hover {
-  @apply border-gray-600;
 }

@@ -1,8 +1,10 @@
 "use client";
 
-import Border from "#/components/border";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
+
+import { usePathname } from "next/navigation";
+
+import Border from "#/components/border";
 
 // can we use context?
 
@@ -10,11 +12,11 @@ export default function HoistingPage() {
   const [state, setState] = useState("Click to change state");
   const pathname = usePathname();
 
-  if (typeof window === "undefined") {
-    console.log("Yo, we're on the server");
-  } else {
-    console.log("Yo, we 're on the client");
-  }
+  // if (typeof window === "undefined") {
+  //   console.log("Yo, we're on the server");
+  // } else {
+  //   console.log("Yo, we 're on the client");
+  // }
   // const
 
   return (
@@ -29,10 +31,7 @@ export default function HoistingPage() {
           </div>
           <div>{pathname}</div>
           <div>
-            <button
-              className="btn btn-primary"
-              onClick={() => setState(`changed + ${Date.now()}`)}
-            >
+            <button className="btn btn-primary" onClick={() => setState(`changed + ${Date.now()}`)}>
               {state}
             </button>
           </div>

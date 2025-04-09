@@ -1,9 +1,10 @@
 "use client";
 
 // import fs from "fs/promises";
-import Border from "#/components/border";
 import { useEffect } from "react";
 import { useState } from "react";
+
+import Border from "#/components/border";
 
 import jsonImport from "./hello.json";
 import Properties from "./properties";
@@ -25,19 +26,19 @@ export default function EnvironmentClient() {
     })();
   }, []);
 
+  // TODO use this canonical check instead of window.
+
   const runningOnClient = typeof document !== "undefined";
 
   return (
-    <Border client>
+    <Border client checkSSR>
       <div className="mb-4 text-sm font-bold text-blue-800">
         I have <code>&quot;use client&quot;</code> at the top of my file.
       </div>
       <Properties
         data={{
-          hrefLocation:
-            typeof location !== "undefined" ? location.href : undefined,
-          userAgent:
-            typeof navigator !== "undefined" ? navigator.userAgent : undefined,
+          hrefLocation: typeof location !== "undefined" ? location.href : undefined,
+          userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
           secret: process.env.MY_SECRET,
           cwd: process.cwd(),
           __dirname,
