@@ -58,7 +58,7 @@ export default function BarChart({ data }: { data?: { key: string; value: number
               </TooltipTrigger>
               <TooltipContent>
                 <div>{d.key}</div>
-                <div className="text-sm text-gray-500">{Math.round(d.value)}</div>
+                <div className="text-sm text-gray-800">{Math.round(d.value)}</div>
               </TooltipContent>
             </ClientTooltip>
           );
@@ -69,11 +69,7 @@ export default function BarChart({ data }: { data?: { key: string; value: number
             .ticks(8)
             .map(xScale.tickFormat(8, "d"))
             .map((active, i) => (
-              <g
-                transform={`translate(${xScale(+active)},0)`}
-                className="text-gray-300/80 dark:text-gray-800/80"
-                key={i}
-              >
+              <g transform={`translate(${xScale(+active)},0)`} className="text-gray-800/80" key={i}>
                 <line
                   y1={0}
                   y2={100}
@@ -93,7 +89,7 @@ export default function BarChart({ data }: { data?: { key: string; value: number
               left: `${xScale(value)}%`,
               top: "100%",
             }}
-            className="absolute -translate-x-1/2 text-xs text-gray-400 tabular-nums"
+            className="absolute -translate-x-1/2 text-xs text-gray-800 tabular-nums"
           >
             {value}
           </div>
@@ -109,7 +105,7 @@ export default function BarChart({ data }: { data?: { key: string; value: number
               left: "-8px",
               top: `${yScale(entry.key)! + yScale.bandwidth() / 2}%`,
             }}
-            className="absolute w-full -translate-y-1/2 text-right text-xs text-gray-400"
+            className="absolute w-full -translate-y-1/2 text-right text-xs text-gray-800"
           >
             {entry.key}
           </span>

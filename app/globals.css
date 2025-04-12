@@ -16,3 +16,7 @@
   @apply active:border-orange-400 active:bg-orange-200;
   @apply focus:ring-orange-200;
 }
+
+.highlight {
+  @apply rounded-md bg-yellow-100 px-1 py-0.5 text-yellow-900;
+}

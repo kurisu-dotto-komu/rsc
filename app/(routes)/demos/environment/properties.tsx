@@ -16,9 +16,9 @@ type FieldKey = (typeof fields)[number]["key"];
 
 export default function Properties({ data }: { data: { [K in FieldKey]: unknown } }) {
   return (
-    <div className="overflow-x-auto rounded-md border border-gray-200 bg-white/10">
-      <table className="divide-y divide-gray-200">
-        <tbody className="divide-y divide-gray-200">
+    <div className="overflow-x-auto rounded-md border border-gray-300 bg-white/10">
+      <table className="divide-y divide-gray-300">
+        <tbody className="divide-y divide-gray-300">
           {fields.map((field) => (
             <tr key={field.key} className="hover:bg-white/40">
               <td className="p-3 text-sm font-bold whitespace-nowrap">{field.name}</td>

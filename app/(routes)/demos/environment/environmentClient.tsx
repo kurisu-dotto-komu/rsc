@@ -27,14 +27,8 @@ export default function EnvironmentClient() {
   }, []);
 
   // TODO use this canonical check instead of window.
-
-  const runningOnClient = typeof document !== "undefined";
-
   return (
-    <Border client checkSSR>
-      <div className="mb-4 text-sm font-bold text-blue-800">
-        I have <code>&quot;use client&quot;</code> at the top of my file.
-      </div>
+    <Border client name="EnvironmentClient">
       <Properties
         data={{
           hrefLocation: typeof location !== "undefined" ? location.href : undefined,

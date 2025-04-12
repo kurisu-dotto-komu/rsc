@@ -15,12 +15,7 @@ export default async function EnvironmentServer() {
   const headersList = await headers();
 
   return (
-    <Border>
-      <div className="mb-4 text-sm font-bold text-red-800">
-        I <span className="line-through opacity-50">have</span> don&apos;t need{" "}
-        <code>&quot;use server&quot;</code> at the top of my file.
-      </div>
-
+    <Border server name="EnvironmentServer">
       <Properties
         data={{
           hrefLocation: headersList.get("referer"),
