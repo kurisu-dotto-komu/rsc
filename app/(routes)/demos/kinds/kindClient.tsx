@@ -29,7 +29,7 @@ const getBatteryInfo = async (): Promise<string> => {
   }
 };
 
-export default function Client() {
+export default function KindClient() {
   const [{ os, battery } = {}, setSystemInfo] = useState<SystemInfo>({});
 
   // useEffect will only render once we're mounted on the client.

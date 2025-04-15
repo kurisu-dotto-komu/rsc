@@ -4,7 +4,7 @@ import Link from "next/link";
 import Border from "#/components/border";
 import Info from "#/components/info";
 import Markdown from "#/components/markdown";
-import Notebook from "#/components/notebook";
+import Readable from "#/components/readable";
 
 import DumbClient from "./dumbClient";
 import DumbServer from "./dumbServer";
@@ -21,20 +21,21 @@ import tree from "./rsc2.png";
 
 export default function KindsPage() {
   return (
-    <Notebook>
+    <Readable>
+      <Info>
+        All 3 kinds of components can appear as children of all other component kinds in the tree.
+      </Info>
       <Link href="https://www.dreamhost.com/blog/react-server-components/" target="_blank">
         <Image src={tree} alt="tree" className="mb-10 rounded-4xl shadow-lg" />
       </Link>
-      <Info>
-        As you can see,{" "}
-        <span className="highlight">
-          all kinds of components can appear as children or parents of all other component kinds in
-          the tree
-        </span>
-        .
-      </Info>
+      <div>Network Boundaries, Importing, and Nesting.</div>
+      <div>Key Point: Network</div>
       <div>
         <div>
+          <li>
+            TODO: Use the phrase <code>inteweaving</code>
+          </li>
+          <li>useContext sharing</li>
           <li>Network Boundaries</li>
           <li>Nesting</li>
           <li>Importing</li>
@@ -126,6 +127,6 @@ Imported components will use whichever
         but they are will be rendered in &quot;client mode&quot;.
       </p>
       <ImportFromClient />
-    </Notebook>
+    </Readable>
   );
 }

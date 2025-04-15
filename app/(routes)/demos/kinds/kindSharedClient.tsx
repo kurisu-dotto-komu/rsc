@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import Border from "#/components/border";
 
-import Shared from "./shared";
+import Shared from "./kindShared";
 
-export default function SharedClient() {
+export default function KindSharedClient() {
   const [showing, setShowing] = useState(false);
   return (
     <Border client name="SharedClient">

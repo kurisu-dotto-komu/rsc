@@ -13,13 +13,21 @@ export default function DemosLayout({
 }>) {
   const pathname = usePathname();
   const currentIndex = demos.findIndex((demo) => demo.path === pathname);
-  const prevDemo = currentIndex > 0 ? demos[currentIndex - 1] : null;
-  const nextDemo = currentIndex < demos.length - 1 ? demos[currentIndex + 1] : null;
+
+  // Find the next non-disabled demo
+  const nextDemo = demos.slice(currentIndex + 1).find((demo) => !demo.disabled) || null;
+
+  // Find the previous non-disabled demo
+  const prevDemo =
+    demos
+      .slice(0, currentIndex)
+      .reverse()
+      .find((demo) => !demo.disabled) || null;
 
   return (
     <div className="flex flex-grow flex-col">
       <div className="flex flex-grow flex-col">
-        <div>{children}</div>
+        <div className="flex flex-col gap-8">{children}</div>
       </div>
       <div className="mt-8 flex items-center justify-between">
         {prevDemo ? (

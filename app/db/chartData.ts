@@ -1,3 +1,5 @@
+"use server";
+
 const coreData = [
   { key: "Technology", value: 38.1 },
   { key: "Financials", value: 25.3 },

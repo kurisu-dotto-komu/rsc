@@ -1,7 +1,7 @@
 import Border from "#/components/border";
 import Markdown from "#/components/markdown";
 
-export default function Shared() {
+export default function KindShared() {
   return (
     <Border name="Shared">
       <Markdown>{`

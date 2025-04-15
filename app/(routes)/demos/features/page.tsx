@@ -1,12 +1,15 @@
+import { Code } from "bright";
 import Link from "next/link";
 
 import BarChartClient from "./barChartClient";
 import BarChartServer from "./barChartServer";
+import CodeEditors from "./codeEditors";
 
 export default function FeaturesPage() {
   return (
     <>
       <div className="prose max-w-none">
+        <p>TODO show flight payload</p>
         <h1>Feature Showcase</h1>
         <div className="grid gap-4 md:grid-cols-2">
           <BarChartServer />
@@ -18,6 +21,15 @@ export default function FeaturesPage() {
             RosenCharts
           </Link>
         </p>
+        <CodeEditors />
+
+        <p>
+          Syntax highlighting example -- killer!{" "}
+          <Link href="https://bright.codehike.org/" target="_blank">
+            https://bright.codehike.org/
+          </Link>
+        </p>
+
         <div>SPEED EXAMPLE</div>
         <ul>
           <li>Speed</li>

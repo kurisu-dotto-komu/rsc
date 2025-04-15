@@ -3,7 +3,7 @@ export default function SecurityPage() {
     <div>
       <h1>Security</h1>
       <div>
-        TODO
+        TODO params, searchParams, cookies, headers, etc.
         <ul>
           <li>Where to put secrets?</li>
           <li>
@@ -13,6 +13,10 @@ export default function SecurityPage() {
             <code>npm install server-only</code>
           </li>
         </ul>
+      </div>
+      <div>
+        https://react.dev/reference/react/experimental_taintUniqueValue
+        https://react.dev/reference/react/experimental_taintObjectReference
       </div>
     </div>
   );

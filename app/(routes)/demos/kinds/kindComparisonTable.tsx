@@ -1,3 +1,4 @@
+// AI Slop
 import Link from "next/link";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { RiAlertLine, RiCloseLine, RiExternalLinkLine } from "react-icons/ri";
@@ -161,12 +162,10 @@ const comparisonData: ComparisonData[] = [
     shared: false,
   },
   {
-    task: "Use React Class components",
+    task: "Handle edge cases where rendering on server is inefficient.",
     serverComponent: false,
     clientComponent: true,
     shared: false,
-    isLink: true,
-    linkUrl: "https://react.dev/reference/react/Component",
   },
 ];
 
@@ -176,7 +175,7 @@ const comparisonData: ComparisonData[] = [
 const getColumns = (): Column<ComparisonData>[] => [
   {
     header: (
-      <div className="inline-flex items-center gap-4">
+      <div className="flex items-center gap-4">
         <span>What do you need to do?</span>
         <Link
           className="text-sm text-gray-500 no-underline hover:text-gray-700"
@@ -213,7 +212,7 @@ const getColumns = (): Column<ComparisonData>[] => [
 /**
  * Comparison table component that displays the capabilities of different component types
  */
-export default function ComparisonTable() {
+export default function KindComparisonTable() {
   const columns = getColumns();
 
   return (

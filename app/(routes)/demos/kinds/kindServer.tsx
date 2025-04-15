@@ -3,7 +3,7 @@ import fs from "fs";
 import Border from "#/components/border";
 import Markdown from "#/components/markdown";
 
-export default function PureServer() {
+export default function KindServer() {
   const data = fs.readFileSync("app/db/test.json", "utf8");
   const json = JSON.parse(data);
   return (

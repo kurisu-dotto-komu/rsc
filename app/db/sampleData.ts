@@ -1,24 +1,32 @@
 import { faker } from "@faker-js/faker";
 
-export type User = {
+export type UserType = {
   id: string;
+  avatar: string;
   name: string;
   email: string;
-  role: string;
-  department: string;
+  title: string;
+  jobArea: string;
   joinDate: Date;
+  jobDescription: string;
+  jobDescriptor: string;
 };
 
-export async function getSampleData(count: number = 3): Promise<User[]> {
-  // Simulate network delay with random timeout up to 200ms
-  await new Promise((resolve) => setTimeout(resolve, Math.random() * 200));
+export async function getSampleData(count: number = 3): Promise<UserType[]> {
+  // Simulate a a 50-250ms delay
+  const delay = 50 + Math.random() * 200;
+  await new Promise((resolve) => setTimeout(resolve, delay));
 
+  const sex = faker.person.sexType();
   return Array.from({ length: count }, () => ({
     id: faker.string.uuid(),
-    name: faker.person.fullName(),
+    avatar: faker.image.personPortrait({ sex }),
+    name: faker.person.fullName({ sex }),
     email: faker.internet.email(),
-    role: faker.helpers.arrayElement(["Developer", "Designer", "Manager", "Analyst"]),
-    department: faker.helpers.arrayElement(["Engineering", "Design", "Product", "Marketing"]),
+    title: faker.person.jobTitle(),
+    jobArea: faker.person.jobArea(),
+    jobDescriptor: faker.person.jobDescriptor(),
     joinDate: faker.date.past({ years: 5 }),
+    jobDescription: faker.lorem.paragraph(5),
   }));
 }

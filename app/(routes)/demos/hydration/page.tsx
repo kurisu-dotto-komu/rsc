@@ -1,8 +1,8 @@
+import { Code } from "bright";
 import Link from "next/link";
 
 import Info from "#/components/info";
 import Markdown from "#/components/markdown";
-import Notebook from "#/components/notebook";
 import SignOff from "#/components/signOff";
 
 import HydrationClient from "./hydrationClient";
@@ -19,7 +19,8 @@ import InteractiveClient from "./interactiveClient";
 
 export default function HydrationPage() {
   return (
-    <Notebook>
+    <>
+      <p>Explain nextjs weirdness</p>
       <Info>
         Hydration is the process of attaching JavaScript event handlers to server-rendered HTML in
         the browser.
@@ -87,11 +88,26 @@ Common causes of hydration errors include:
           `}</Markdown>
       </div>
       <HydrationSharedClient />
+      <Code
+        lang="tsx"
+        code={`
+// HydrationError.tsx
+"use client";
+
+export default function HydrationError() {
+  return (
+    <div>
+      The time is {new Date().toLocaleTimeString()}
+    </div>
+  );
+}
+`.trim()}
+      />
       <HydrationError />
       <HydrationErrorUseEffectFix />
       <HydrationErrorDynamicImportFix />
       <HydrationErrorClientOnlyFix />
       <SignOff>Next, let&apos;s look at some new features of server components.</SignOff>
-    </Notebook>
+    </>
   );
 }

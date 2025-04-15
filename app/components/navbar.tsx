@@ -45,22 +45,56 @@ function SubMenu({
   subMenu: SubMenuItem[];
   isActive: (route: string, subRoute?: string) => boolean;
 }) {
+  const getColorClass = (color?: string) => {
+    if (!color) return "";
+    const colorMap = {
+      red: "text-red-600",
+      green: "text-green-600",
+      blue: "text-blue-600",
+    };
+    return colorMap[color as keyof typeof colorMap] || "";
+  };
+
   return (
     <div className="invisible absolute right-0 z-20 mt-1 w-40 overflow-hidden rounded-md bg-white opacity-0 shadow-sm ring-1 ring-gray-100 transition-all duration-150 group-hover:visible group-hover:opacity-100">
       <div className="py-0.5" role="menu">
-        {subMenu.map((subItem: SubMenuItem) => (
-          <Link
-            key={subItem.path}
-            href={subItem.path}
-            className={`flex items-center px-3 py-1.5 text-sm hover:bg-gray-50 ${
-              isActive(subItem.path) ? "bg-gray-100 text-black" : "text-gray-600"
-            }`}
-            role="menuitem"
-          >
-            {subItem.icon && <subItem.icon className="mr-2" />}
-            {subItem.name}
-          </Link>
-        ))}
+        {subMenu.map((subItem: SubMenuItem) => {
+          const content = (
+            <>
+              {subItem.icon && (
+                <subItem.icon
+                  className={`mr-2 ${subItem.disabled ? "opacity-50" : ""} ${getColorClass(subItem.color)}`}
+                />
+              )}
+              <span className={getColorClass(subItem.color)}>{subItem.name}</span>
+            </>
+          );
+
+          if (subItem.disabled) {
+            return (
+              <div
+                key={subItem.path}
+                className="flex cursor-not-allowed items-center px-3 py-1.5 text-sm text-gray-400"
+                role="menuitem"
+              >
+                {content}
+              </div>
+            );
+          }
+
+          return (
+            <Link
+              key={subItem.path}
+              href={subItem.path}
+              className={`flex items-center px-3 py-1.5 text-sm hover:bg-gray-50 ${
+                isActive(subItem.path) ? "bg-gray-100" : ""
+              }`}
+              role="menuitem"
+            >
+              {content}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
