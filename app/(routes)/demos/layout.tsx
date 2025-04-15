@@ -34,14 +34,14 @@ export default function DemosLayout({
           <Link href={prevDemo.path} className="btn">
             <RiArrowLeftSLine className="text-sm opacity-80" />
             {prevDemo.name}
-            <prevDemo.icon className="text-lg" />
+            {prevDemo.icon && <prevDemo.icon className="text-lg" />}
           </Link>
         ) : (
           <div />
         )}
         {nextDemo ? (
           <Link href={nextDemo.path} className="btn">
-            <nextDemo.icon className="text-lg" />
+            {nextDemo.icon && <nextDemo.icon className="text-lg" />}
             {nextDemo.name}
             <RiArrowRightSLine className="text-sm opacity-80" />
           </Link>

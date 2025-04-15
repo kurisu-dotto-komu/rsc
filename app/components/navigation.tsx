@@ -35,9 +35,19 @@ export type SubMenuItem = {
   icon?: React.ElementType;
   disabled?: boolean;
   color?: "red" | "green" | "blue";
+  description?: string;
 };
 
-export const demos = [
+export type DemoItem = {
+  path: string;
+  name: string;
+  icon?: React.ElementType;
+  disabled?: boolean;
+  color?: "red" | "green" | "blue";
+  description: string;
+};
+
+export const demos: DemoItem[] = [
   {
     name: "Features",
     path: "/demos/features",
@@ -179,6 +189,12 @@ export const navigation = [
     name: "Demos",
     path: "/demos",
     icon: RiAppsLine,
-    subMenu: demos,
+    subMenu: demos.map(({ path, name, icon, disabled, color }) => ({
+      path,
+      name,
+      icon,
+      disabled,
+      color,
+    })),
   },
 ];

@@ -18,9 +18,11 @@ export default function Home() {
       {demos.map((demo) => {
         const content = (
           <div className="flex items-center gap-4 py-2">
-            <demo.icon
-              className={`text-4xl ${demo.disabled ? "opacity-50" : ""} ${getColorClass(demo.color)}`}
-            />
+            {demo.icon && (
+              <demo.icon
+                className={`text-4xl ${demo.disabled ? "opacity-50" : ""} ${getColorClass(demo.color)}`}
+              />
+            )}
             <div>
               <div className={`text-lg font-bold ${getColorClass(demo.color)}`}>{demo.name}</div>
               <div className="text-sm opacity-70">{demo.description}</div>

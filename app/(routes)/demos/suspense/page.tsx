@@ -1,12 +1,8 @@
-import { Suspense } from "react";
-
 import Code from "#/components/code";
 import Highlight from "#/components/highlight";
 import Info from "#/components/info";
-import Notebook from "#/components/notebook";
 import Readable from "#/components/readable";
 import SignOff from "#/components/signOff";
-import Spinner from "#/components/spinner";
 
 import SuspenseClient from "./suspenseClient";
 import SuspenseServer from "./suspenseServer";
