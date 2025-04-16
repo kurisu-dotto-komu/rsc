@@ -51,24 +51,32 @@ export default function TabBox({
   const [firstTab, ...restTabs] = tabs;
 
   return (
-    <div className={className}>
-      <div className="mx-2 flex items-center">
-        {/* First tab aligned to the left */}
+    <div className={clsx(className)}>
+      <div className="flex w-full items-center gap-1 overflow-hidden px-2">
+        {/* First tab: shrink naturally, no overflow */}
         {firstTab && (
-          <Tab
-            color={typeof firstTab === "string" ? color : firstTab.color || color}
-            className="mr-auto"
-          >
-            {typeof firstTab === "string" ? firstTab : firstTab.text}
-          </Tab>
+          <div className="max-w-[50%] flex-shrink-0">
+            <Tab
+              className="truncate"
+              color={typeof firstTab === "string" ? color : firstTab.color || color}
+            >
+              {typeof firstTab === "string" ? firstTab : firstTab.text}
+            </Tab>
+          </div>
         )}
-        {/* Rest of the tabs aligned to the right */}
+
+        {/* Spacer between first tab and the rest */}
+        <div className="min-w-0 flex-1" />
+
+        {/* Rest of the tabs: truncate if needed */}
         {restTabs.length > 0 && (
-          <div className="flex gap-2">
+          <div className="flex max-w-[50%] flex-shrink-0 gap-1 overflow-hidden">
             {restTabs.map((tab, index) => (
-              <Tab key={index} color={typeof tab === "string" ? color : tab.color || color}>
-                {typeof tab === "string" ? tab : tab.text}
-              </Tab>
+              <div key={index}>
+                <Tab color={typeof tab === "string" ? color : tab.color || color}>
+                  {typeof tab === "string" ? tab : tab.text}
+                </Tab>
+              </div>
             ))}
           </div>
         )}

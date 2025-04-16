@@ -177,14 +177,6 @@ const getColumns = (): Column<ComparisonData>[] => [
     header: (
       <div className="flex items-center gap-4">
         <span>What do you need to do?</span>
-        <Link
-          className="text-sm text-gray-500 no-underline hover:text-gray-700"
-          href="https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Table Source
-        </Link>
       </div>
     ),
     accessor: (item: ComparisonData) => (
@@ -216,13 +208,17 @@ export default function KindComparisonTable() {
   const columns = getColumns();
 
   return (
-    <Table
-      data={comparisonData}
-      columns={columns}
-      headerClassName="bg-gray-50 whitespace-nowrap text-lg font-medium px-6 py-3"
-      rowClassName="border-t border-gray-100 hover:bg-gray-50"
-      className="overflow-hidden rounded-lg border border-gray-200 shadow-sm"
-      cellClassName="px-6 py-3"
-    />
+    <div className="mx-auto">
+      <>
+        <Table
+          data={comparisonData}
+          columns={columns}
+          headerClassName="bg-gray-50 text-lg font-medium px-6 py-3 text-left"
+          rowClassName="border-t border-gray-100 hover:bg-gray-50"
+          className="rounded-lg border border-gray-200"
+          cellClassName="px-3 py-3"
+        />
+      </>
+    </div>
   );
 }

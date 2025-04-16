@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import Border from "#/components/border";
 import Code from "#/components/code";
 import Highlight from "#/components/highlight";
@@ -5,6 +7,7 @@ import Info from "#/components/info";
 import Markdown from "#/components/markdown";
 import Readable from "#/components/readable";
 import SignOff from "#/components/signOff";
+import Spinner from "#/components/spinner";
 
 import FetchAPI from "./fetchAPI";
 import FetchDirect from "./fetchDirect";
@@ -26,17 +29,20 @@ export default async function FetchingPage() {
           </Highlight>
           . Of course, if the API is <b>external</b>, have at it!
         </p>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           <Border server name="FetchDirect">
             <FetchDirect />
           </Border>
           <Border server name="FetchAPI">
-            <FetchAPI />
+            {/* We haven't looked at suspense yet, but we need it here */}
+            <Suspense fallback={<Spinner />}>
+              <FetchAPI />
+            </Suspense>
           </Border>
         </div>
       </Readable>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         <Code
           color="green"
           tabs={["Fetching Directly", "Good! 👍"]}

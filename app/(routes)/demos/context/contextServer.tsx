@@ -9,7 +9,7 @@ export default async function ContextServer() {
   const users = await getSampleData(4);
 
   return (
-    <Border server name="ContextServer" className="flex flex-col gap-4">
+    <Border server name="ContextServer">
       <div>I&apos;m server component. Here is some async server-side data to prove it:</div>
       <Users users={users} compact parentClassName="grid grid-cols-2 gap-2" />
       <div>Marvel, as I import these client components:</div>

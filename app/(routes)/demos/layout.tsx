@@ -27,7 +27,10 @@ export default function DemosLayout({
   return (
     <div className="flex flex-grow flex-col">
       <div className="flex flex-grow flex-col">
-        <div className="flex flex-col gap-8">{children}</div>
+        <div className="flex flex-col gap-8">
+          {/* sup */}
+          {children}
+        </div>
       </div>
       <div className="mt-8 flex items-center justify-between">
         {prevDemo ? (

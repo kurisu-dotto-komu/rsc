@@ -4,22 +4,13 @@ export default function CodeEditors() {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {themes.map((theme, index) => (
-        <div key={theme}>
-          {/* <div className="mx-2 flex items-center justify-between font-mono text-xs">
-            <div className={`rounded-t-md bg-blue-200 px-2 py-0.5 text-blue-900`}>{theme}</div>
-            <div className={`rounded-t-md bg-purple-200 px-2 py-0.5 text-purple-900`}>
-              {languages[index].name}
-            </div>
-          </div> */}
-          <Code
-            key={index}
-            color="purple"
-            tabs={[languages[index].name, { text: theme, color: "gray" }]}
-            code={languages[index].snippet}
-            lang={languages[index].key}
-            light={theme === "github-light"}
-          />
-        </div>
+        <Code
+          key={index}
+          theme={theme}
+          tabs={[languages[index].name, { text: theme, color: "purple" }]}
+          code={languages[index].snippet}
+          lang={languages[index].key}
+        />
       ))}
     </div>
   );

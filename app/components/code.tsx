@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-import { Code as BrightCode, BrightProps } from "bright";
+import { Code as BrightCode } from "bright";
 import clsx from "clsx";
 
 import TabBox, { type ColorType, type TabItem } from "./tabBox";
@@ -11,24 +11,17 @@ const darkTheme = "dracula";
 const lightTheme = "github-light";
 const defaultTheme = darkTheme;
 
-const styleOverrides = {
-  borderRadius: "none",
-  margin: "0",
-};
-
 export default function Code({
   lang,
   light,
   code,
   children,
   color,
-  inline,
   tabs,
   className,
   ...props
 }: BrightCodeProps & {
   light?: boolean;
-  inline?: boolean;
   className?: string;
   tabs?: TabItem[];
   color?: ColorType;
@@ -38,28 +31,8 @@ export default function Code({
       <BrightCode
         lang={lang ?? "tsx"}
         theme={light ? lightTheme : defaultTheme}
+        className={"not-prose code-fix !rounded-lg"}
         {...props}
-        className={clsx(
-          "not-prose rounded-lg",
-          inline ? "inline-block" : "",
-          // light && "border-1 border-gray-200",
-        )}
-        style={inline ? { ...styleOverrides, display: "inline-block" } : styleOverrides}
-        extensions={
-          inline
-            ? [
-                {
-                  name: "pre",
-                  Pre: (props: BrightProps) => (
-                    <div className="[&>pre]:!rounded-none [&>pre]:!py-1">
-                      {/* @ts-ignore - BrightCode.Pre works at runtime despite type error */}
-                      <BrightCode.Pre {...props} />
-                    </div>
-                  ),
-                },
-              ]
-            : []
-        }
       >
         {children ?? code?.trim()}
       </BrightCode>

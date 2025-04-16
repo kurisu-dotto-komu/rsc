@@ -13,5 +13,5 @@ export default function Counter() {
     return () => clearInterval(interval);
   }, []);
 
-  return <span>{count}</span>;
+  return <span className="font-mono font-bold">{count}</span>;
 }

@@ -83,6 +83,8 @@ Notable causes of [hydration errors](https://nextjs.org/docs/messages/react-hydr
 - Browser extensions or CDNs modifying the page's static HTML
 
 Take, for example, the following simple client component. This would be no trouble before RSC, but it causes a hydration error in Next.js.
+
+**Refresh the page to see hydration happening!**
           `}</Markdown>
         <HydrationError />
         <Code
@@ -136,7 +138,7 @@ export function HydrationErrorUseEffectFix() {
         </p>
         <HydrationErrorClientOnlyFix />
       </Readable>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         <Code
           tabs={["HydrationErrorClientOnlyFix"]}
           code={`

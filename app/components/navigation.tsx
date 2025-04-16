@@ -67,7 +67,7 @@ export const demos: DemoItem[] = [
     path: "/demos/environment",
     icon: RiTableView,
     description: "Server and client environment differences",
-    color: "blue",
+    color: "green",
   },
   {
     name: "Boundaries",
@@ -123,7 +123,7 @@ export const demos: DemoItem[] = [
     path: "/demos/suspense",
     icon: RiHourglassLine,
     description: "Streaming RSCs using suspense boundaries",
-    color: "green",
+    color: "blue",
   },
   {
     name: "Waterfall",

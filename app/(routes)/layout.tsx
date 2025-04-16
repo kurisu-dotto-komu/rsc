@@ -1,6 +1,7 @@
 import "#/globals.css";
 
 import { Metadata } from "next";
+import type { Viewport } from "next";
 
 import Container from "#/components/container";
 import Menu from "#/components/navbar";
@@ -9,6 +10,13 @@ export const metadata: Metadata = {
   title: "RSC Demos",
   description:
     "A collection of React Server Component demonstrations showcasing the power and capabilities of Next.js RSC architecture.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

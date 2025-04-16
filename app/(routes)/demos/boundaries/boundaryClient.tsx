@@ -8,7 +8,7 @@ import BoundarySharedGrandChild from "./boundarySharedGrandChild";
 
 export default function BoundaryClient({ header }: { header: React.ReactNode }) {
   return (
-    <Border readable client name="BoundaryClient">
+    <Border client name="BoundaryClient">
       {header}
       <p>
         This is a client component, doing client things <Counter />.

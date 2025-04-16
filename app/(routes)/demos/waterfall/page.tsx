@@ -22,7 +22,7 @@ export default function WaterfallPage() {
           unnoticable thanks to the lack of network delay.
         </p>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid gap-6 sm:grid-cols-2">
           <WaterfallServer />
           <WaterfallClient />
         </div>

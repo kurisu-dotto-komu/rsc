@@ -422,21 +422,21 @@ function getEnvironmentValues() {
         }
       }),
     },
-    {
-      name: "Heap size limit",
-      value: safeGet(() => {
-        try {
-          // Check if v8 module is available
-          if (typeof require !== "undefined") {
-            const v8 = require("v8");
-            return `${Math.round(v8.getHeapStatistics().heap_size_limit / 1024 / 1024)} MB`;
-          }
-          return undefined;
-        } catch (e) {
-          return undefined;
-        }
-      }),
-    },
+    // {
+    //   name: "Heap size limit",
+    //   value: safeGet(() => {
+    //     try {
+    //       // Check if v8 module is available
+    //       if (typeof require !== "undefined") {
+    //         const v8 = require("v8");
+    //         return `${Math.round(v8.getHeapStatistics().heap_size_limit / 1024 / 1024)} MB`;
+    //       }
+    //       return undefined;
+    //     } catch (e) {
+    //       return undefined;
+    //     }
+    //   }),
+    // },
     {
       name: "Memory usage",
       value: safeGet(() => {
@@ -445,25 +445,25 @@ function getEnvironmentValues() {
       }),
     },
 
-    {
-      name: "Available file system",
-      value: safeGet(() => {
-        try {
-          // Check if fs module is available
-          if (typeof require !== "undefined") {
-            const fs = require("fs");
-            const root = process.platform === "win32" ? "C:\\" : "/";
-            const stats = fs.statfsSync(root);
-            const free = Math.round((stats.bfree * stats.bsize) / 1024 / 1024);
-            const total = Math.round((stats.blocks * stats.bsize) / 1024 / 1024);
-            return `${free} MB free of ${total} MB total`;
-          }
-          return undefined;
-        } catch (e) {
-          return undefined;
-        }
-      }),
-    },
+    // {
+    //   name: "Available file system",
+    //   value: safeGet(() => {
+    //     try {
+    //       // Check if fs module is available
+    //       if (typeof require !== "undefined") {
+    //         const fs = require("fs");
+    //         const root = process.platform === "win32" ? "C:\\" : "/";
+    //         const stats = fs.statfsSync(root);
+    //         const free = Math.round((stats.bfree * stats.bsize) / 1024 / 1024);
+    //         const total = Math.round((stats.blocks * stats.bsize) / 1024 / 1024);
+    //         return `${free} MB free of ${total} MB total`;
+    //       }
+    //       return undefined;
+    //     } catch (e) {
+    //       return undefined;
+    //     }
+    //   }),
+    // },
 
     {
       name: "Uptime",

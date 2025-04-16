@@ -29,7 +29,7 @@ export function Table<T>({
   keyExtractor = (_, index) => index,
 }: TableProps<T>) {
   return (
-    <table className={`w-full table-auto border-collapse ${className}`}>
+    <table className={`table-auto border-collapse ${className}`}>
       <thead>
         <tr className={headerClassName}>
           {columns.map((column, index) => (

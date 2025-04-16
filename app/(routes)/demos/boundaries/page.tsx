@@ -13,14 +13,14 @@ export default function BoundariesPage() {
         <Info>
           In RSC,{" "}
           <Highlight>
-            the <b>imported</b> (grand)children of client components all become client components
+            the <b>imported</b> (grand) children of client components all become client components
           </Highlight>
           . When <code>&quot;use client&quot;</code> appears, a &quot;network boundary&quot; is
           created in the component tree.
         </Info>
         <BoundaryServer />
       </Readable>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         <Code
           tabs={["BoundaryServer"]}
           code={`
