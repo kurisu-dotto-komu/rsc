@@ -378,54 +378,6 @@ function getEnvironmentValues() {
       name: "env.NODE_ENV",
       value: safeGet(() => process.env.NODE_ENV),
     },
-
-    // Module information
-
-    {
-      name: "require.resolve",
-      value: safeGet(() => {
-        try {
-          if (typeof require !== "undefined") {
-            const modules = [
-              "fs",
-              "path",
-              "crypto",
-              "http",
-              "https",
-              "stream",
-              "buffer",
-              "events",
-              "util",
-              "os",
-              "child_process",
-              "cluster",
-              "dgram",
-              "dns",
-              "net",
-              "tls",
-              "zlib",
-              "v8",
-              "vm",
-              "worker_threads",
-            ];
-
-            const availableModules = modules.filter((moduleName) => {
-              try {
-                require.resolve(moduleName);
-                return true;
-              } catch (e) {
-                return false;
-              }
-            });
-
-            return availableModules.join(", ");
-          }
-          return undefined;
-        } catch (e) {
-          return undefined;
-        }
-      }),
-    },
     {
       name: "import.meta.url",
       value: safeGet(() => import.meta.url),
@@ -444,17 +396,6 @@ function getEnvironmentValues() {
         process.version ? `${process.version} (${process.platform}/${process.arch})` : undefined,
       ),
     },
-    // Network information
-    {
-      name: "Host info",
-      value: safeGet(() => {
-        const hostname = process.env.HOSTNAME;
-        const port = process.env.PORT;
-        if (!hostname && !port) return undefined;
-        return `${hostname || ""}:${port || ""}`;
-      }),
-    },
-
     // Additional server-side information
     {
       name: "CPU architecture",
