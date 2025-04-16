@@ -42,7 +42,7 @@ function WaterfallClientFriends() {
 
 export default function WaterfallClient() {
   return (
-    <Border client name="WaterfallClient">
+    <Border client>
       <ClientFetch<UserType[]>
         url="/api/sampleData?count=1"
         renderChild={(users) => (

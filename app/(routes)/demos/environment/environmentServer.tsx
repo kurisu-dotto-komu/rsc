@@ -4,7 +4,7 @@ import EnvironmentValues from "./environmentValues";
 
 export default async function EnvironmentServer({ filterNextJs }: { filterNextJs?: boolean }) {
   return (
-    <Border server name="EnvironmentServer">
+    <Border server>
       <EnvironmentValues filterNextJs={filterNextJs} />
     </Border>
   );

@@ -1,17 +1,12 @@
-import { getSampleData } from "#/db/sampleData";
-
+import AsyncServer from "#/components/asyncServer";
 import Border from "#/components/border";
-import Users from "#/components/users";
 
 import ContextCounterButton from "./contextCounterButton";
 
 export default async function ContextServer() {
-  const users = await getSampleData(4);
-
   return (
-    <Border server name="ContextServer">
-      <div>I&apos;m server component. Here is some async server-side data to prove it:</div>
-      <Users users={users} compact parentClassName="grid grid-cols-2 gap-2" />
+    <Border server>
+      <AsyncServer />
       <div>Marvel, as I import these client components:</div>
       <div className="grid grid-cols-2 gap-4">
         <ContextCounterButton />

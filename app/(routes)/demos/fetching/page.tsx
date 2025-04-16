@@ -6,8 +6,8 @@ import Highlight from "#/components/highlight";
 import Info from "#/components/info";
 import Markdown from "#/components/markdown";
 import Readable from "#/components/readable";
-import SignOff from "#/components/signOff";
 import Spinner from "#/components/spinner";
+import TabBox from "#/components/tabBox";
 
 import FetchAPI from "./fetchAPI";
 import FetchDirect from "./fetchDirect";
@@ -29,16 +29,20 @@ export default async function FetchingPage() {
           </Highlight>
           . Of course, if the API is <b>external</b>, have at it!
         </p>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <Border server name="FetchDirect">
-            <FetchDirect />
-          </Border>
-          <Border server name="FetchAPI">
-            {/* We haven't looked at suspense yet, but we need it here */}
-            <Suspense fallback={<Spinner />}>
-              <FetchAPI />
-            </Suspense>
-          </Border>
+        <div className="grid grid-cols-2 gap-4">
+          <TabBox color="green" tabs={["Fetch Directly"]}>
+            <Border server>
+              <FetchDirect />
+            </Border>
+          </TabBox>
+          <TabBox color="purple" tabs={["Fetch Internal API"]}>
+            <Border server>
+              {/* We haven't looked at suspense yet, but we need it here */}
+              <Suspense fallback={<Spinner />}>
+                <FetchAPI />
+              </Suspense>
+            </Border>
+          </TabBox>
         </div>
       </Readable>
 
@@ -62,7 +66,7 @@ export async function FetchSQL() {
 `}
         />
         <Code
-          color="red"
+          color="purple"
           tabs={["Fetching from internal API", "Bad! 👎"]}
           code={`
 // don't do this            
@@ -80,18 +84,15 @@ export async function FetchAPI() {
         <Markdown>{`
 This may feel strange coming from the client-side world, but the benefits are clear:
 
-- No network request, so less latency and resources used
-- More secure because you don't need to expose an API
+- Faster as there is no network request
+- More secure as you don't need to expose an API
+- Improved DX as it is just like importing a module
 - TypeScript types will be included
-- Easier to reason about
-- Easier to maintain
-- Easier to debug
-- Easier to test
+- Easier to test / maintain / debug
 
 And that's not to mention that your local API server won't be running during the build step, so you don't get the benefits of SSG. **Just say "no" to using an internal API to fetch data in an RSC.**
         `}</Markdown>
       </Readable>
-      <SignOff>But lets say yes to streaming data !</SignOff>
     </>
   );
 }

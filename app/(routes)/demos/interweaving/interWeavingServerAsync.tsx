@@ -3,7 +3,7 @@ import UsersAsync from "#/components/usersAsync";
 
 export default async function BoundaryServerAsync() {
   return (
-    <Border server name="InterWeavingServerAsync">
+    <Border server name="Async">
       <UsersAsync />
     </Border>
   );

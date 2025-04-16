@@ -12,7 +12,7 @@ const getUsers = cache(async () => {
 export default async function CacheReactServer() {
   const users = await getUsers();
   return (
-    <Border server name="CacheReactServer">
+    <Border server>
       <Users users={users} compact />
     </Border>
   );

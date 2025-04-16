@@ -8,7 +8,7 @@ import Users from "#/components/users";
 
 export default function FetchWithUseEffect() {
   return (
-    <Border client name="FetchWithUseEffect">
+    <Border client>
       <ClientFetch<UserType[]>
         url="/api/sampleData?count=3"
         renderChild={(users) => <Users users={users} compact />}

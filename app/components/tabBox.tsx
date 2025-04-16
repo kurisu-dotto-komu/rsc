@@ -55,7 +55,7 @@ export default function TabBox({
       <div className="flex w-full items-center gap-1 overflow-hidden px-2">
         {/* First tab: shrink naturally, no overflow */}
         {firstTab && (
-          <div className="max-w-[50%] flex-shrink-0">
+          <div className="flex-shrink-0">
             <Tab
               className="truncate"
               color={typeof firstTab === "string" ? color : firstTab.color || color}
@@ -70,7 +70,7 @@ export default function TabBox({
 
         {/* Rest of the tabs: truncate if needed */}
         {restTabs.length > 0 && (
-          <div className="flex max-w-[50%] flex-shrink-0 gap-1 overflow-hidden">
+          <div className="flex flex-shrink-0 gap-1 overflow-hidden">
             {restTabs.map((tab, index) => (
               <div key={index}>
                 <Tab color={typeof tab === "string" ? color : tab.color || color}>

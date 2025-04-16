@@ -6,7 +6,7 @@ import Shared from "./kindShared";
 
 export default function KindSharedClient() {
   return (
-    <Border client name="SharedClient">
+    <Border client>
       <Shared />
     </Border>
   );

@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -15,25 +17,72 @@ function NavLink({
   route: Route;
   isActive: (route: string, subRoute?: string) => boolean;
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
   const activeSubMenu = route.subMenu?.find((subItem: SubMenuItem) =>
     isActive(route.path, subItem.path),
   );
-  const displayRoute = activeSubMenu || route;
+  const isOnSubmenu = activeSubMenu !== undefined;
+
+  // Close menu on navigation
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (route.subMenu && isOnSubmenu) {
+      e.preventDefault();
+      setIsOpen(!isOpen);
+    }
+  };
 
   return (
-    <div key={displayRoute.path} className="group relative">
-      <Link
-        href={displayRoute.path}
-        className={`inline-flex items-center rounded-md px-2 py-1.5 text-sm font-medium hover:text-gray-900 ${
-          isActive(displayRoute.path) ? "bg-gray-100 text-black" : "text-gray-600"
-        }`}
-      >
-        {displayRoute.icon && <displayRoute.icon className="mr-2" />}
-        {displayRoute.name}
-        {route.subMenu && <RiArrowDownSLine className="ml-1 text-xs opacity-80" />}
-      </Link>
+    <div key={route.path} className="group relative" ref={menuRef}>
+      <div className="flex items-center space-x-2">
+        {/* Root button - always visible */}
+        <Link
+          href={route.path}
+          className={`inline-flex items-center rounded-md px-2 py-1.5 text-sm font-medium hover:text-gray-900 ${
+            isActive(route.path) && !isOnSubmenu ? "bg-gray-100 text-black" : "text-gray-600"
+          }`}
+        >
+          {route.icon && <route.icon className="mr-2" />}
+          {route.name}
+        </Link>
 
-      {route.subMenu && <SubMenu subMenu={route.subMenu} isActive={isActive} />}
+        {/* Submenu button - only visible when on submenu route */}
+        {isOnSubmenu && activeSubMenu && route.subMenu && (
+          <div className="group/submenu relative">
+            <Link
+              href={activeSubMenu.path}
+              onClick={handleClick}
+              className={`inline-flex items-center rounded-md px-2 py-1.5 text-sm font-medium hover:text-gray-900 ${
+                isActive(activeSubMenu.path) ? "bg-gray-100 text-black" : "text-gray-600"
+              }`}
+            >
+              {activeSubMenu.icon && <activeSubMenu.icon className="mr-2" />}
+              {activeSubMenu.name}
+              <RiArrowDownSLine className="ml-1 text-xs opacity-80" />
+            </Link>
+
+            <SubMenu subMenu={route.subMenu} isActive={isActive} isOpen={isOpen} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -41,9 +90,11 @@ function NavLink({
 function SubMenu({
   subMenu,
   isActive,
+  isOpen,
 }: {
   subMenu: SubMenuItem[];
   isActive: (route: string, subRoute?: string) => boolean;
+  isOpen: boolean;
 }) {
   const getColorClass = (color?: string) => {
     if (!color) return "";
@@ -56,7 +107,11 @@ function SubMenu({
   };
 
   return (
-    <div className="invisible absolute right-0 z-20 mt-1 w-40 overflow-hidden rounded-md bg-white opacity-0 shadow-sm ring-1 ring-gray-100 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+    <div
+      className={`absolute top-full right-0 z-20 mt-1 w-40 overflow-hidden rounded-md bg-white shadow-sm ring-1 ring-gray-100 transition-all duration-150 md:invisible md:opacity-0 md:group-hover/submenu:visible md:group-hover/submenu:opacity-100 ${
+        isOpen ? "visible opacity-100" : "invisible opacity-0"
+      }`}
+    >
       <div className="py-0.5" role="menu">
         {subMenu.map((subItem: SubMenuItem) => {
           const content = (
@@ -120,7 +175,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <span>
               <Link href="/" className="text-lg font-semibold">
-                RSC Demos
+                ⚛ RSC Demos
               </Link>
             </span>
           </div>

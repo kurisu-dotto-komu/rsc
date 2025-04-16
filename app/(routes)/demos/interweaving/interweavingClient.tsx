@@ -9,7 +9,7 @@ import InterweavingShared from "./interweavingShared";
 export default function InterweavingClient({
   children,
   header,
-  name = "InterweavingClient",
+  name,
 }: {
   children?: React.ReactNode;
   header?: React.ReactNode;
@@ -18,8 +18,7 @@ export default function InterweavingClient({
   return (
     <Border client name={name} readable>
       <p>
-        I am client component with a <code>&quot;use client&quot;</code> directive. I can do client
-        things: <Counter />
+        I can do client things: <Counter />
       </p>
       {header && (
         <TabBox dotted tabs={["Prop"]}>

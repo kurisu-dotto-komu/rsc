@@ -1,7 +1,6 @@
 import Info from "#/components/info";
 import Readable from "#/components/readable";
 import SignOff from "#/components/signOff";
-import Toggle from "#/components/toggle";
 
 import CookieButton from "./cookieButton";
 import EnvironmentClient from "./environmentClient";
@@ -21,7 +20,7 @@ export default function EnvironmentPage() {
         <EnvironmentServer />
         <EnvironmentClient />
       </div>
-      <h2 className="text-center text-2xl font-bold">
+      <h2 id="nextjs" className="text-center text-2xl font-bold">
         Next.JS / Vercel Specific Environment Values
       </h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -36,9 +35,6 @@ export default function EnvironmentPage() {
         </p>
       </Readable>
       <CookieButton />
-      <SignOff>
-        Next, lets see how these components can be combined together in a component tree topology.
-      </SignOff>
     </>
   );
 }

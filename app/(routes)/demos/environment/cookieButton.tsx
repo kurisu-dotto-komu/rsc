@@ -27,9 +27,10 @@ export default function CookieButton() {
     document.cookie = `test=value_${nonce}; expires=${expiryDate.toUTCString()}; path=/`;
     setCookieSet(true);
 
-    // Reload the page after a short delay to show the updated cookie
+    // Reload the page with query parameter after a short delay
     setTimeout(() => {
-      window.location.reload();
+      // Use window.location.href to navigate to the same page with query parameters
+      window.location.href = window.location.pathname + "?testParam=hello#nextjs";
     }, 500);
   };
 

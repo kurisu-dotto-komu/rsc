@@ -18,7 +18,7 @@ export function HydrationErrorUseEffectFix() {
   }, []);
 
   return (
-    <Border client name="HydrationErrorUseEffectFix">
+    <Border client name="Use Effect Fix">
       The time is {theTime}
     </Border>
   );
@@ -26,7 +26,7 @@ export function HydrationErrorUseEffectFix() {
 
 export function HydrationErrorClientOnlyFix() {
   return (
-    <Border client name="HydrationErrorClientOnlyFix">
+    <Border client name="Client Only Fix">
       <ClientOnly>
         <HydrationError />
       </ClientOnly>
@@ -38,7 +38,7 @@ export const DynamicFix = dynamic(() => import("./hydrationError"), { ssr: false
 
 export function HydrationErrorDynamicImportFix() {
   return (
-    <Border client name="HydrationErrorDynamicImportFix">
+    <Border client name="Dynamic Import Fix">
       <DynamicFix />
     </Border>
   );

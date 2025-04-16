@@ -33,7 +33,10 @@ export function Table<T>({
       <thead>
         <tr className={headerClassName}>
           {columns.map((column, index) => (
-            <th key={index} className={`p-2 ${cellClassName} text-${column.align || "left"}`}>
+            <th
+              key={index}
+              className={`p-2 ${cellClassName} text-${column.align || "left"} text-xs`}
+            >
               {column.header}
             </th>
           ))}

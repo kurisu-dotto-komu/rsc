@@ -2,10 +2,10 @@ import Image from "next/image";
 
 import Border from "#/components/border";
 import Code from "#/components/code";
+import Highlight from "#/components/highlight";
 import Info from "#/components/info";
 import Markdown from "#/components/markdown";
 import Readable from "#/components/readable";
-import SignOff from "#/components/signOff";
 
 import Comic2 from "./hydration2.png";
 import Comic1 from "./hydration.png";
@@ -20,6 +20,7 @@ import HydrationServer from "./hydrationServer";
 import HydrationShared from "./hydrationShared";
 import HydrationSharedClient from "./hydrationSharedClient";
 import InteractiveClient from "./interactiveClient";
+import Skeleton from "./skeleton.png";
 
 export default function HydrationPage() {
   return (
@@ -27,29 +28,47 @@ export default function HydrationPage() {
       <Readable>
         <Info>
           Hydration is the process of attaching JavaScript event handlers to server-rendered HTML in
-          the browser. The RSC paradigm helps make hydration seamless.
+          the browser.{" "}
+          <Highlight>
+            The RSC paradigm makes &quot;perfect hydration&quot; basically effortless
+          </Highlight>
+          .
         </Info>
         <p>
-          While the hydration mechanism itself is part of React, the strategy of exactly when and
-          how hydration occurs is handled by your framework. In our case, we&apos;re using Next.js,
-          so keep this in mind that there may be implementation nuances when applying this knowledge
-          to different frameworks.
+          Note that while the hydration mechanism itself is part of React, the strategy of exactly
+          when and how hydration occurs is handled by your framework. In our case, we&apos;re using
+          Next.js, so keep this in mind that there may be implementation nuances when applying this
+          knowledge to different frameworks.
         </p>
+        <p>
+          Before RSC, it would be typical to show the user a &quot;Skeleton&quot; loading UI, which
+          is a static HTML skeleton of the component but without any interactivity or real data.
+        </p>
+        <Image className="rounded-lg" src={Skeleton} alt="Skeleton" />
+        <p>
+          This is better than nothing, but hardly the best user experience and is only slightly
+          better than a loading spinner or blank page.
+        </p>
+        <p>
+          With RSC, it is trivial to display a non-interactive but fully-populated skeleton of a
+          Client Component on the initial page request body, while JS is still loading. Once the
+          page has loaded and is ready to be interacted with, the Client Component is hydrated
+          seamlessly without any visible changes or &quot;popping&quot; effect.
+        </p>
+        <p>I call this &quot;perfect hydration&quot;.</p>
         <InteractiveClient />
         <Markdown>
           {`
 Above is a Client Component with interactivity. To get this on your screen and clickable, here's what happens:
 
 - Even through it's a "client component", it is pre-rendered on the server during the build step (!)  
-- The output of this rendering, static HTML, is like a "real skeleton" of the component
-- This skeleton is sent to the client on initial page load, so something can be shown to the user while the client JS environment is loading. 
+- The output of this rendering, static HTML, is like a "perfect skeleton" of the component
+- This skeleton HTML is sent to the client on initial page load, and is shown to the user while the client JS environment is loading
 - The skeleton looks identical to the hydrated component's initial state, so it feels like the component is immediately loaded without any "popping" effect
 - Once the JS code is downloaded and the client is ready to go, the client "hydrates" the static HTML, adding event listeners and making the component interactive
 - Ideally, this hydration step transitions from a "real skeleton" to a "real component" with identical DOM elements, so nobody is the wiser!
 
-But wait, I thought we can't use \`useState\`, etc, with Server Components?
-
-This is still true for actual Server Components, but Next.js has a way to coerce Client Components to be rendered on the server, just for for this special trick. 
+But wait, I thought we couldn't use \`useState\`, etc, with Server Components? This is still true for actual Server Components, but [Next.js will render Client Components on the server](https://nextjs.org/docs/app/building-your-application/rendering/client-components#full-page-load), just so we can do this special hydration trick. 
 
 As a reminder, only client components can be interactive, so only client components need to be hydrated:
 
@@ -200,7 +219,6 @@ export function HydrationErrorDynamicImportFix() {
         `}
         />
       </Readable>
-      <SignOff>Next, let&apos;s look at some new features of server components.</SignOff>
     </>
   );
 }

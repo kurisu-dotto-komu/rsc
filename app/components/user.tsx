@@ -97,15 +97,20 @@ export default function User({
           <Image src={user.avatar} alt={`${user.name}'s avatar`} fill className="object-cover" />
         </div>
         <div className="text-center sm:text-left">
-          <h3 className={clsx("font-semibold text-gray-900", compact ? "text-base" : "text-lg")}>
+          <h3
+            className={clsx(
+              "line-clamp-1 font-semibold text-gray-900",
+              compact ? "text-base" : "text-lg",
+            )}
+          >
             {user.name}
           </h3>
-          <p className="text-sm text-gray-600">{user.title}</p>
+          <p className="line-clamp-2 text-sm text-gray-600">{user.title}</p>
         </div>
       </div>
 
       {!compact && (
-        <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+        <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2">
           <InfoField label="Email" value={user.email} />
           <InfoField label="Area" value={user.jobArea} />
           <InfoField label="Role" value={user.jobDescriptor} />

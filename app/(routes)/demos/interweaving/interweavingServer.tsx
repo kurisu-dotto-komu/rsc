@@ -1,14 +1,14 @@
+import AsyncServer from "#/components/asyncServer";
 import Border from "#/components/border";
 
-import InterweavingServerAsync from "./interWeavingServerAsync";
 import InterweavingClient from "./interweavingClient";
 import InterweavingShared from "./interweavingShared";
 
 export default function InterweavingServer() {
   return (
-    <Border server name="InterweavingServer" readable>
+    <Border server readable>
       <p>I am a server component</p>
-      <InterweavingServerAsync />
+      <AsyncServer />
       <InterweavingShared />
       <p>
         We can pass Server Components &quot;through&quot; child Client Components without creating a
@@ -16,13 +16,13 @@ export default function InterweavingServer() {
       </p>
       <InterweavingClient>
         <InterweavingShared />
-        <InterweavingServerAsync />
+        <AsyncServer />
       </InterweavingClient>
       <p>A more complex example, passing a Server Component as a prop and deeply nesting:</p>
-      <InterweavingClient header={<InterweavingServerAsync />}>
+      <InterweavingClient header={<AsyncServer />}>
         <InterweavingShared />
-        <InterweavingClient name="InterweavingClient (Nested)">
-          <InterweavingServerAsync />
+        <InterweavingClient name="Nested Client">
+          <AsyncServer />
         </InterweavingClient>
       </InterweavingClient>
     </Border>

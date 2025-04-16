@@ -3,7 +3,7 @@ import Markdown from "#/components/markdown";
 
 export default function KindShared() {
   return (
-    <Border name="Shared">
+    <Border>
       <Markdown>{`
 Hi, I am an Shared component. I will be rendered on the server by default, but if if a Client Component imports me, I will be rendered on the client.
 

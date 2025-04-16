@@ -31,7 +31,7 @@ export default function Code({
       <BrightCode
         lang={lang ?? "tsx"}
         theme={light ? lightTheme : defaultTheme}
-        className={"not-prose code-fix !rounded-lg"}
+        className={"not-prose code-fix !rounded-lg text-xs sm:text-sm"}
         {...props}
       >
         {children ?? code?.trim()}

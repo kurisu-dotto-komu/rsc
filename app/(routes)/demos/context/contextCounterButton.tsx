@@ -8,7 +8,7 @@ export default function ContextCounterButton() {
   const { count, setCount } = useCounter();
 
   return (
-    <Border client name="ContextCounterButton">
+    <Border client>
       <button className="btn btn-primary" onClick={() => setCount(count + 1)}>
         Shared Counter: {count}
       </button>

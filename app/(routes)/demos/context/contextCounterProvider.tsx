@@ -15,7 +15,7 @@ export function ContextCounterProvider({ children }: { children: ReactNode }) {
   const [count, setCount] = useState(0);
 
   return (
-    <Border client name="ContextCounterProvider">
+    <Border client name="Context Provider">
       <ContextCounterContext.Provider value={{ count, setCount }}>
         {children}
       </ContextCounterContext.Provider>

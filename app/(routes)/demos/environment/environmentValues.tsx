@@ -88,6 +88,16 @@ function getEnvironmentValues() {
 
   // Next.js specific values
   const nextJsValues = [
+    {
+      name: "process.env.MY_SECRET",
+      value: safeGet(() => process.env.MY_SECRET),
+      highlight: true,
+    },
+    {
+      name: "process.env.NEXT_PUBLIC_NOT_SECRET",
+      value: safeGet(() => process.env.NEXT_PUBLIC_NOT_SECRET),
+    },
+
     // System information
     { name: "os.hostname()", value: osInfo.hostname },
     { name: "os.platform()", value: osInfo.platform },
@@ -115,6 +125,7 @@ function getEnvironmentValues() {
     {
       name: "next/cookies - cookies().get('test')",
       value: getCookieValue("test"),
+      highlight: true,
     },
 
     // Next.js Navigation features
@@ -135,6 +146,7 @@ function getEnvironmentValues() {
     },
     {
       name: "next/navigation - useSearchParams()",
+      highlight: true,
       value: safeGet(() => {
         try {
           const { useSearchParams } = require("next/navigation");
@@ -167,15 +179,6 @@ function getEnvironmentValues() {
     },
 
     // Environment variables
-    {
-      name: "process.env.MY_SECRET",
-      value: safeGet(() => process.env.MY_SECRET),
-      highlight: true,
-    },
-    {
-      name: "process.env.NEXT_PUBLIC_NOT_SECRET",
-      value: safeGet(() => process.env.NEXT_PUBLIC_NOT_SECRET),
-    },
     {
       name: "process.env.NEXT_RUNTIME",
       value: safeGet(() => process.env.NEXT_RUNTIME || undefined),

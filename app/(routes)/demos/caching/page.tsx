@@ -32,12 +32,21 @@ Note that the cache persists when rendering components during the same server re
 
         <div className="my-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <TabBox color="purple" tabs={["RSCs without Cache"]}>
-            <NoCacheReactServer />
-            <NoCacheReactServer />
+            <div>Notice that each time the component is rendered, the data is fetched again.</div>
+            <div className="grid grid-cols-2 gap-4">
+              <NoCacheReactServer />
+              <NoCacheReactServer />
+            </div>
           </TabBox>
           <TabBox color="green" tabs={["RSCs with Cache"]}>
-            <CacheReactServer />
-            <CacheReactServer />
+            <div>
+              Notice that each time the component is rendered, the data stays the same (from a
+              cache).
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <CacheReactServer />
+              <CacheReactServer />
+            </div>
           </TabBox>
         </div>
       </Readable>
@@ -75,7 +84,6 @@ async function DemoProfile() {
         `}
         />
       </div>
-      <SignOff>Now lets look at what nextjs can do.</SignOff>
     </>
   );
 }

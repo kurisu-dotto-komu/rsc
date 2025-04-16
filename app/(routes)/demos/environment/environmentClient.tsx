@@ -17,7 +17,7 @@ export default function EnvironmentClient({ filterNextJs }: { filterNextJs?: boo
   }, []);
 
   return (
-    <Border client name="EnvironmentClient">
+    <Border client>
       {!mounted && <Spinner />}
       {mounted && <EnvironmentValues filterNextJs={filterNextJs} />}
     </Border>

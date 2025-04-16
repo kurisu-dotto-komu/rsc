@@ -16,7 +16,7 @@ export default function ContextPage() {
           Client Context can be shared as usual and is accessible by components further down the
           component tree.
         </Info>
-        <Border server name="RootLayout">
+        <Border server>
           <ContextCounterProvider>
             <ContextServer />
           </ContextCounterProvider>
@@ -24,7 +24,7 @@ export default function ContextPage() {
 
         <p>
           A common use case is a <Highlight>top level theme provider</Highlight> client component
-          that wraps the entire app. Becuase the app is being passed &quot;through&quot; from the
+          that wraps the entire app. Because the app is being passed &quot;through&quot; from the
           root server component, children are not within a client boundary, but subsequently
           imported client components <i>can</i> access the theme context.
         </p>
@@ -72,7 +72,7 @@ export default function ThemeProvider({ children }) {
           initial page request?
         </p>
       </Readable>
-      <SignOff>One way might be to check the user session! Lets find out how...</SignOff>
+      <SignOff>One way might be to check the user session! Let&apos;s find out how...</SignOff>
     </>
   );
 }

@@ -92,7 +92,7 @@ export default async function ServerAsync() {
         </h2>
         <p>
           These are components that use browser-only APIs. They usually have some kind of
-          interactivity or some kind of rednering that can only be done in the browser. They have
+          interactivity or some kind of rendering that can only be done in the browser. They have
           the <code>use client</code> directive at the top of their file.
           <Highlight>
             They behave like &quot;traditional&quot; react components most of the time.
@@ -122,7 +122,7 @@ export default function Client() {
         />
 
         <p>
-          The the RSC world, depending on the framework, Client Components can behave unexpectedly,
+          In the RSC world, depending on the framework, Client Components can behave unexpectedly,
           especially during Hydration. We will look more closely at this later.
         </p>
         <div>
@@ -170,10 +170,6 @@ export default function Client() {
           flexibility to tackle any problem.
         </p>
       </Readable>
-      <SignOff>
-        Now lets go into more detail about the differences between client and server components, and
-        when to use them.
-      </SignOff>
     </>
   );
 }

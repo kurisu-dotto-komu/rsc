@@ -17,8 +17,11 @@ export default function KindClient() {
   }, []);
 
   return (
-    <Border client name="Client">
-      <div>I am a Client Component. Watch me count: {count}</div>
+    <Border client>
+      <div>
+        I am a Client Component. Watch me count:{" "}
+        <span className="font-mono font-bold">{count}</span>
+      </div>
     </Border>
   );
 }

@@ -65,7 +65,6 @@ export default function BoundaryClient() {
 `}
         />
       </div>
-      <SignOff>So, how do we overcome boundaries?</SignOff>
     </>
   );
 }

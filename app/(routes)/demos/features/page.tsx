@@ -41,7 +41,7 @@ export default function FeaturesPage() {
         <li>Secure Access to Server-Only Logic</li>
         <li>Simpler DX</li>
         <li>New data patterns</li>
-        <li>Single network rountrip ( no need for the client to ask for the data separately)</li>
+        <li>Single network roundtrip (no need for the client to ask for the data separately)</li>
         <li>Smaller bundle size</li>
         <li>SEO</li>
         <li>TODO GROK NEXTJS DOCS</li>
@@ -56,7 +56,7 @@ export default function FeaturesPage() {
       <h1>Concepts</h1>
       <ul>
         <li>
-          use server - only the OUTPUT is sent to the client, without the logic or dependancies;
+          use server - only the OUTPUT is sent to the client, without the logic or dependencies;
           like SSG
         </li>
         <li>

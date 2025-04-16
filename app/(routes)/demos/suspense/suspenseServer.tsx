@@ -13,7 +13,7 @@ export async function UserList() {
 
 export default async function SuspenseDemo() {
   return (
-    <Border server name="SuspenseDemo">
+    <Border server>
       <Suspense fallback={<Spinner />}>
         <UserList />
       </Suspense>

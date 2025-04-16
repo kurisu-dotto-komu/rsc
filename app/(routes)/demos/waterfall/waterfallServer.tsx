@@ -52,7 +52,7 @@ export async function WaterfallServerUsers() {
 
 export default async function WaterfallServer() {
   return (
-    <Border server name="WaterfallServer">
+    <Border server>
       <Suspense fallback={<Spinner />}>
         <WaterfallServerUsers />
       </Suspense>

@@ -39,7 +39,7 @@ export default function ValueTable({ values }: { values: ValueTableItem[] }) {
                 key={index}
                 className={clsx("hover:bg-white/40", item.highlight && "bg-yellow-100/30")}
               >
-                <td className="relative w-[25ch] max-w-[25ch] bg-black/5 font-mono text-sm font-bold">
+                <td className="relative w-[20ch] max-w-[20ch] bg-black/5 font-mono text-xs font-bold">
                   <ScrollRight>
                     <div className="inline-block min-w-full p-3 text-right">{item.name}</div>
                   </ScrollRight>

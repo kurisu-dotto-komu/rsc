@@ -45,6 +45,7 @@ export type DemoItem = {
   disabled?: boolean;
   color?: "red" | "green" | "blue";
   description: string;
+  signOffMessage?: string;
 };
 
 export const demos: DemoItem[] = [
@@ -54,6 +55,7 @@ export const demos: DemoItem[] = [
     icon: RiCheckFill,
     description: "Core RSC features and capabilities",
     color: "blue",
+    signOffMessage: "Now let&apos;s explore the different kinds of components in RSC!",
   },
   {
     name: "Kinds",
@@ -61,6 +63,8 @@ export const demos: DemoItem[] = [
     icon: RiCheckboxMultipleBlankFill,
     description: "The types of components in RSC",
     color: "green",
+    signOffMessage:
+      "Now let&apos;s go into more detail about the differences between client and server components, and when to use them.",
   },
   {
     name: "Environments",
@@ -68,6 +72,8 @@ export const demos: DemoItem[] = [
     icon: RiTableView,
     description: "Server and client environment differences",
     color: "green",
+    signOffMessage:
+      "Next, let&apos;s see how these components can be combined together in a component tree topology.",
   },
   {
     name: "Boundaries",
@@ -75,6 +81,7 @@ export const demos: DemoItem[] = [
     icon: RiStackLine,
     description: "Server and client environment differences",
     color: "green",
+    signOffMessage: "So, how do we overcome boundaries?",
   },
   {
     name: "Interweaving",
@@ -82,6 +89,7 @@ export const demos: DemoItem[] = [
     icon: RiGitMergeLine,
     description: "Constructing component trees that contain RSCs",
     color: "green",
+    signOffMessage: "Now let&apos;s see how we can share state between components using Context!",
   },
   // {
   //   name: "Topology",
@@ -103,6 +111,7 @@ export const demos: DemoItem[] = [
     icon: RiGlobalLine,
     description: "Passing context between components",
     color: "green",
+    signOffMessage: "One way might be to check the user session! Let&apos;s find out how...",
   },
   {
     name: "Fetching",
@@ -110,6 +119,7 @@ export const demos: DemoItem[] = [
     icon: RiDownloadLine,
     description: "Data fetching in RSC",
     color: "green",
+    signOffMessage: "But let&apos;s say yes to streaming data!",
   },
   {
     name: "Caching",
@@ -117,13 +127,16 @@ export const demos: DemoItem[] = [
     icon: RiDatabaseLine,
     description: "Data fetching and caching strategies",
     color: "green",
+    signOffMessage: "Now let&apos;s look at what nextjs can do.",
   },
   {
     name: "Suspense",
     path: "/demos/suspense",
     icon: RiHourglassLine,
     description: "Streaming RSCs using suspense boundaries",
-    color: "blue",
+    color: "green",
+    signOffMessage:
+      "Next, let&apos;s see how much of an effect this can have when chaining multiple Suspense components.",
   },
   {
     name: "Waterfall",
@@ -131,6 +144,7 @@ export const demos: DemoItem[] = [
     icon: RiAlignBottom,
     description: "Waterfall rendering",
     color: "green",
+    signOffMessage: "Now let&apos;s see how hydration works with these components!",
   },
   {
     name: "Hydration",
@@ -138,6 +152,7 @@ export const demos: DemoItem[] = [
     icon: RiWaterFlashLine,
     description: "Hydration and client components",
     color: "green",
+    signOffMessage: "Next, let&apos;s look at some new features of server components.",
   },
   // {
   //   name: "Hoisting",
@@ -195,7 +210,7 @@ export const navigation = [
   {
     name: "Demos",
     path: "/demos",
-    icon: RiAppsLine,
+    // icon: RiAppsLine,
     subMenu: demos.map(({ path, name, icon, disabled, color }) => ({
       path,
       name,
