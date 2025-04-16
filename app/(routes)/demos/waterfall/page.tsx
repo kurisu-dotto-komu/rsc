@@ -13,7 +13,7 @@ export default function WaterfallPage() {
       <Readable>
         <Info>
           RSC Streaming is great with a single component, but it&apos;s even{" "}
-          <Highlight>more noticable when nested data-fetching components are involved</Highlight>.
+          <Highlight>more noticeable when nested data-fetching components are involved</Highlight>.
         </Info>
         <p>Refresh the page to see the waterfall effect.</p>
         <div className="grid grid-cols-2 gap-2">
@@ -28,7 +28,7 @@ export default function WaterfallPage() {
         </p>
         <p>
           With RSC, with server-side data fetching combined with streaming components, the waterfall
-          effect is almost unnoticable.
+          effect is almost unnoticeable.
         </p>
       </Readable>
     </>

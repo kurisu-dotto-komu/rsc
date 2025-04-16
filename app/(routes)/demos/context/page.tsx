@@ -72,7 +72,6 @@ export default function ThemeProvider({ children }) {
           initial page request?
         </p>
       </Readable>
-      <SignOff>One way might be to check the user session! Let&apos;s find out how...</SignOff>
     </>
   );
 }

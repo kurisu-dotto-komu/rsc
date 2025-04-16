@@ -96,16 +96,6 @@ function SubMenu({
   isActive: (route: string, subRoute?: string) => boolean;
   isOpen: boolean;
 }) {
-  const getColorClass = (color?: string) => {
-    if (!color) return "";
-    const colorMap = {
-      red: "text-red-600",
-      green: "text-green-600",
-      blue: "text-blue-600",
-    };
-    return colorMap[color as keyof typeof colorMap] || "";
-  };
-
   return (
     <div
       className={`absolute top-full right-0 z-20 mt-1 w-40 overflow-hidden rounded-md bg-white shadow-sm ring-1 ring-gray-100 transition-all duration-150 md:invisible md:opacity-0 md:group-hover/submenu:visible md:group-hover/submenu:opacity-100 ${
@@ -117,11 +107,9 @@ function SubMenu({
           const content = (
             <>
               {subItem.icon && (
-                <subItem.icon
-                  className={`mr-2 ${subItem.disabled ? "opacity-50" : ""} ${getColorClass(subItem.color)}`}
-                />
+                <subItem.icon className={`mr-2 ${subItem.disabled ? "opacity-50" : ""}`} />
               )}
-              <span className={getColorClass(subItem.color)}>{subItem.name}</span>
+              <span>{subItem.name}</span>
             </>
           );
 

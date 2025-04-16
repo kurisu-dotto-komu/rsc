@@ -1,6 +1,5 @@
 import {
   RiAlignBottom,
-  RiAppsLine,
   RiCheckFill,
   RiCheckboxMultipleBlankFill,
   RiDatabaseLine,
@@ -11,8 +10,6 @@ import {
   RiGlobalLine,
   RiHourglassLine,
   RiLockLine,
-  RiNextjsLine,
-  RiPictureInPictureLine,
   RiStackLine,
   RiTableView,
   RiUserSettingsLine,
@@ -26,7 +23,6 @@ export type Route = {
   subMenu?: SubMenuItem[];
   disabled?: boolean;
   description?: string;
-  color?: "red" | "green" | "blue";
 };
 
 export type SubMenuItem = {
@@ -34,7 +30,6 @@ export type SubMenuItem = {
   name: string;
   icon?: React.ElementType;
   disabled?: boolean;
-  color?: "red" | "green" | "blue";
   description?: string;
 };
 
@@ -43,7 +38,6 @@ export type DemoItem = {
   name: string;
   icon?: React.ElementType;
   disabled?: boolean;
-  color?: "red" | "green" | "blue";
   description: string;
   signOffMessage?: string;
 };
@@ -54,120 +48,84 @@ export const demos: DemoItem[] = [
     path: "/demos/features",
     icon: RiCheckFill,
     description: "Core RSC features and capabilities",
-    color: "blue",
-    signOffMessage: "Now let&apos;s explore the different kinds of components in RSC!",
+    signOffMessage:
+      "Next, let's explore the core features and capabilities of React Server Components!",
   },
   {
     name: "Kinds",
     path: "/demos/kinds",
     icon: RiCheckboxMultipleBlankFill,
-    description: "The types of components in RSC",
-    color: "green",
+    description: "The three types of components in RSC: Server, Client, and Shared",
     signOffMessage:
-      "Now let&apos;s go into more detail about the differences between client and server components, and when to use them.",
+      "Let's go into detail about the differences between client and server components, and when to use them.",
   },
   {
     name: "Environments",
     path: "/demos/environment",
     icon: RiTableView,
     description: "Server and client environment differences",
-    color: "green",
     signOffMessage:
-      "Next, let&apos;s see how these components can be combined together in a component tree topology.",
+      "Let's look at the different environments where server and client components run.",
   },
   {
     name: "Boundaries",
     path: "/demos/boundaries",
     icon: RiStackLine,
-    description: "Server and client environment differences",
-    color: "green",
-    signOffMessage: "So, how do we overcome boundaries?",
+    description: "How network boundaries work in the component tree",
+    signOffMessage: "Next, let's explore how boundaries work between server and client components.",
   },
   {
     name: "Interweaving",
     path: "/demos/interweaving",
     icon: RiGitMergeLine,
-    description: "Constructing component trees that contain RSCs",
-    color: "green",
-    signOffMessage: "Now let&apos;s see how we can share state between components using Context!",
+    description: "Passing components between server and client boundaries",
+    signOffMessage:
+      "Let's see how we can construct component trees that contain React Server Components.",
   },
-  // {
-  //   name: "Topology",
-  //   path: "/demos/topology",
-  //   icon: RiGitMergeLine,
-  //   description: "Constructing component trees that contain RSCs",
-  //   color: "red",
-  // },
-  // {
-  //   name: "Nesting",
-  //   path: "/demos/nesting",
-  //   icon: RiPictureInPictureLine,
-  //   description: "Server and client component nesting patterns",
-  //   color: "red",
-  // },
   {
     name: "Context",
     path: "/demos/context",
     icon: RiGlobalLine,
-    description: "Passing context between components",
-    color: "green",
-    signOffMessage: "One way might be to check the user session! Let&apos;s find out how...",
+    description: "Passing context between server and client components",
+    signOffMessage:
+      "Next, let's find out how to share context between server and client components.",
   },
   {
     name: "Fetching",
     path: "/demos/fetching",
     icon: RiDownloadLine,
-    description: "Data fetching in RSC",
-    color: "green",
-    signOffMessage: "But let&apos;s say yes to streaming data!",
+    description: "Data fetching patterns in RSC",
+    signOffMessage: "Next, let's say yes to streaming data with React Server Components!",
   },
   {
     name: "Caching",
     path: "/demos/caching",
     icon: RiDatabaseLine,
-    description: "Data fetching and caching strategies",
-    color: "green",
-    signOffMessage: "Now let&apos;s look at what nextjs can do.",
+    description: "Using React's cache function for memoization",
+    signOffMessage: "Next, let's look at what Next.js can do with caching strategies.",
   },
   {
     name: "Suspense",
     path: "/demos/suspense",
     icon: RiHourglassLine,
     description: "Streaming RSCs using suspense boundaries",
-    color: "green",
     signOffMessage:
-      "Next, let&apos;s see how much of an effect this can have when chaining multiple Suspense components.",
+      "Let's see how much of an effect this can have when chaining multiple Suspense components.",
   },
   {
     name: "Waterfall",
     path: "/demos/waterfall",
     icon: RiAlignBottom,
-    description: "Waterfall rendering",
-    color: "green",
-    signOffMessage: "Now let&apos;s see how hydration works with these components!",
+    description: "Handling nested data-fetching components",
+    signOffMessage: "Next, let's see how hydration works with these components!",
   },
   {
     name: "Hydration",
     path: "/demos/hydration",
     icon: RiWaterFlashLine,
-    description: "Hydration and client components",
-    color: "green",
-    signOffMessage: "Next, let&apos;s look at some new features of server components.",
+    description: "How client components hydrate server-rendered HTML",
+    signOffMessage: "Next, let's look at some new features of server components.",
   },
-  // {
-  //   name: "Hoisting",
-  //   path: "/demos/hoisting",
-  //   icon: RiArrowUpLine,
-  //   description: "Understanding component hoisting in RSC",
-  //   // disabled: true,
-  // },
-  // {
-  //   name: "Streaming",
-  //   path: "/demos/streaming",
-  //   icon: RiVoiceprintLine,
-  //   description: "Streaming data to the client",
-  //   disabled: true,
-  // },
   {
     name: "Security",
     path: "/demos/security",
@@ -196,27 +154,24 @@ export const demos: DemoItem[] = [
     description: "Server Functions",
     disabled: true,
   },
-  {
-    name: "Next.js Magic",
-    path: "/demos/nextjs",
-    icon: RiNextjsLine,
-    description: "Understanding component hoisting in RSC",
-    disabled: true,
-  },
+  // {
+  //   name: "Next.js Magic",
+  //   path: "/demos/nextjs",
+  //   icon: RiNextjsLine,
+  //   description: "Understanding component hoisting in RSC",
+  //   disabled: true,
+  // },
 ];
 
 export const navigation = [
-  // { name: "Home", path: "/", icon: RiHomeLine },
   {
     name: "Demos",
     path: "/demos",
-    // icon: RiAppsLine,
-    subMenu: demos.map(({ path, name, icon, disabled, color }) => ({
+    subMenu: demos.map(({ path, name, icon, disabled }) => ({
       path,
       name,
       icon,
       disabled,
-      color,
     })),
   },
 ];

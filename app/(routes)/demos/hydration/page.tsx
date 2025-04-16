@@ -61,7 +61,7 @@ export default function HydrationPage() {
           {`
 Above is a Client Component with interactivity. To get this on your screen and clickable, here's what happens:
 
-- Even through it's a "client component", it is pre-rendered on the server during the build step (!)  
+- Even though it's a "client component", it is pre-rendered on the server during the build step (!)  
 - The output of this rendering, static HTML, is like a "perfect skeleton" of the component
 - This skeleton HTML is sent to the client on initial page load, and is shown to the user while the client JS environment is loading
 - The skeleton looks identical to the hydrated component's initial state, so it feels like the component is immediately loaded without any "popping" effect
@@ -120,7 +120,7 @@ export default function HydrationError() {
 `.trim()}
         />
         <p>
-          This casuses a hydration error because the date on the server doesn&apos;t match what is
+          This causes a hydration error because the date on the server doesn&apos;t match what is
           rendered on the client. Uh oh!
         </p>
         <p>
@@ -202,7 +202,7 @@ export default function ClientOnly({ children }) {
       <Readable>
         <p>
           You can also avoid hydration errors by skipping the SSR step when you dynamically import a
-          a client component. This is particularly useful for lazy-loading big-ass libraries.
+          client component. This is particularly useful for lazy-loading big-ass libraries.
         </p>
         <HydrationErrorDynamicImportFix />
         <Code

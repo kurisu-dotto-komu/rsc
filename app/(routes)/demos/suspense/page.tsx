@@ -14,7 +14,7 @@ export default function SuspensePage() {
     <>
       <Readable>
         <Info>
-          React has a feature called <code>Suspense</code> that allows deffered rendering of child
+          React has a feature called <code>Suspense</code> that allows deferred rendering of child
           components. When used with Server Components, a loading state can be shown while data is
           being fetched on the server.
         </Info>
@@ -30,7 +30,7 @@ export default function SuspensePage() {
           <div>
             When used with a Server Component, <code>Suspense</code> allows the data to be streamed
             without blocking the initial page load. It does not require another round trip as
-            it&apos;s streamed during the intial page request.
+            it&apos;s streamed during the initial page request.
           </div>
           <div>
             The &quot;old school&quot; client <code>useEffect</code> data fetching pattern also
