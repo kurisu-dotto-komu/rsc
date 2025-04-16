@@ -1,5 +1,8 @@
 // TODO tab stuff
-import { Tab } from "./tab";
+import clsx from "clsx";
+
+import Readable from "./readable";
+import TabBox, { type ColorType, Tab } from "./tabBox";
 
 export default function Border({
   children,
@@ -7,16 +10,18 @@ export default function Border({
   server,
   name,
   className,
+  readable,
 }: {
   children: React.ReactNode;
   client?: boolean;
   server?: boolean;
   name?: string;
   className?: string;
+  readable?: boolean;
 }) {
   // default shared
   let kind = "shared";
-  let kindColor: "green" | "red" | "blue" | "gray" = "green";
+  let kindColor: ColorType = "green";
 
   // handle kinds
   if (server) {
@@ -30,37 +35,26 @@ export default function Border({
 
   // handle location
   let location = "node.js";
-  let locationColor: "green" | "red" | "blue" | "gray" = "red";
-  let boxColor = "border-orange-200 bg-orange-100";
+  let locationColor: ColorType = "red";
 
   // if we're on the client, override
   if (typeof document !== "undefined") {
     location = "browser";
     locationColor = "blue";
-    if (kind === "shared") {
-      boxColor = "border-cyan-200 bg-cyan-100";
-    } else {
-      boxColor = "border-blue-200 bg-blue-100";
-    }
-  } else {
-    if (server) {
-      boxColor = "border-red-200 bg-red-100";
-    }
-    if (client) {
-      boxColor = "border-purple-200 bg-purple-100";
-    }
   }
 
+  const tabs = [
+    ...(name ? [{ text: name, color: kindColor }] : []),
+    { text: kind, color: kindColor },
+    { text: location, color: locationColor },
+  ];
+
   return (
-    <div className={`not-prose [.prose>&]:my-8`}>
-      <div className="mx-2 flex justify-between">
-        <div>{name && <Tab color={kindColor}>{name}</Tab>}</div>
-        <div className="flex gap-1">
-          <Tab color={kindColor}>{kind}</Tab>
-          <Tab color={locationColor}>{location}</Tab>
-        </div>
-      </div>
-      <div className={`border ${boxColor} relative rounded-md p-2 ${className}`}>{children}</div>
+    <div className={`last:!mb-0 [.prose>&]:my-4`}>
+      <TabBox tabs={tabs} color={kindColor} className={clsx(className, !readable && "not-prose")}>
+        {readable && <Readable>{children}</Readable>}
+        {!readable && children}
+      </TabBox>
     </div>
   );
 }

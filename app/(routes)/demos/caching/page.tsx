@@ -3,7 +3,7 @@ import Info from "#/components/info";
 import Markdown from "#/components/markdown";
 import Readable from "#/components/readable";
 import SignOff from "#/components/signOff";
-import { Tab } from "#/components/tab";
+import TabBox from "#/components/tabBox";
 
 import CacheReactServer from "./cacheReactServer";
 import NoCacheReactServer from "./noCacheReactServer";
@@ -30,30 +30,21 @@ The \`cache\` function returns a cached result instead of re-executing the compu
 Note that the cache persists when rendering components during the same server request, but it is invalidated upon a new server request.
       `}</Markdown>
 
-        <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
-          <div>
-            <div className="mx-2 flex justify-start">
-              <Tab color="purple">RSCs without Cache</Tab>
-            </div>
-            <div className="flex flex-col gap-4 rounded-md border border-purple-500 bg-purple-50 p-4">
-              <NoCacheReactServer />
-              <NoCacheReactServer />
-            </div>
-          </div>
-          <div>
-            <div className="mx-2 flex justify-start">
-              <Tab color="green">RSCs with Cache</Tab>
-            </div>
-            <div className="flex flex-col gap-4 rounded-md border border-green-500 bg-green-50 p-4">
-              <CacheReactServer />
-              <CacheReactServer />
-            </div>
-          </div>
+        <div className="my-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <TabBox color="purple" tabs={["RSCs without Cache"]}>
+            <NoCacheReactServer />
+            <NoCacheReactServer />
+          </TabBox>
+          <TabBox color="green" tabs={["RSCs with Cache"]}>
+            <CacheReactServer />
+            <CacheReactServer />
+          </TabBox>
         </div>
       </Readable>
       <div className="grid gap-4 sm:grid-cols-2">
         <Code
-          label="RSC Without Cache"
+          color="purple"
+          tabs={["RSC Without Cache"]}
           code={`
 /*
 This is wasteful as the database will be 
@@ -67,7 +58,8 @@ async function DemoProfile() {
         `}
         />
         <Code
-          label="RSC With Cache"
+          color="green"
+          tabs={["RSC With Cache"]}
           code={`
 import { cache } from 'react';
 

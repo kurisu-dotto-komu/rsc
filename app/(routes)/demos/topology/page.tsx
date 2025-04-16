@@ -9,6 +9,7 @@ import Readable from "#/components/readable";
 import DumbClient from "./dumbClient";
 import DumbServer from "./dumbServer";
 import DumbShared from "./dumbShared";
+import DynamicLoad from "./dynamicLoad";
 import FancyClient from "./fancyClient";
 import FancyServer from "./fancyServer";
 import ImportFromClient from "./importFromClient";
@@ -28,6 +29,8 @@ export default function KindsPage() {
       <Link href="https://www.dreamhost.com/blog/react-server-components/" target="_blank">
         <Image src={tree} alt="tree" className="mb-10 rounded-4xl shadow-lg" />
       </Link>
+      <div>Recreate the image above.</div>
+      <div>Then, explain</div>
       <div>Network Boundaries, Importing, and Nesting.</div>
       <div>Key Point: Network</div>
       <div>
@@ -127,6 +130,7 @@ Imported components will use whichever
         but they are will be rendered in &quot;client mode&quot;.
       </p>
       <ImportFromClient />
+      <DynamicLoad />
     </Readable>
   );
 }

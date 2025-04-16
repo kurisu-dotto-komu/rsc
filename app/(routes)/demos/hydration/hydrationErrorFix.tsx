@@ -34,12 +34,12 @@ export function HydrationErrorClientOnlyFix() {
   );
 }
 
-export const HydrationErrorNoSSR = dynamic(() => import("./hydrationError"), { ssr: false });
+export const DynamicFix = dynamic(() => import("./hydrationError"), { ssr: false });
 
 export function HydrationErrorDynamicImportFix() {
   return (
     <Border client name="HydrationErrorDynamicImportFix">
-      <HydrationErrorNoSSR />
+      <DynamicFix />
     </Border>
   );
 }

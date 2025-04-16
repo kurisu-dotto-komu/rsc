@@ -12,13 +12,12 @@ export default function CodeEditors() {
             </div>
           </div> */}
           <Code
-            label={languages[index].name}
-            labelRight={theme}
-            className="border-1 border-gray-300"
-            style={{ margin: 0 }}
-            lang={languages[index].key}
+            key={index}
+            color="purple"
+            tabs={[languages[index].name, { text: theme, color: "gray" }]}
             code={languages[index].snippet}
-            theme={theme}
+            lang={languages[index].key}
+            light={theme === "github-light"}
           />
         </div>
       ))}

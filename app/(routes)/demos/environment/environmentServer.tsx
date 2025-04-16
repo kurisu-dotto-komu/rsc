@@ -30,6 +30,7 @@ export default async function EnvironmentServer() {
           jsonImportAsync: (await import("./helloAsync.json")).default,
           jsonRead: JSON.parse(
             // await fs.readFile("./helloFs.json", "utf-8")
+            // skip this, it is breaking on deploy?
             await fs.readFile(
               path.join(path.dirname(new URL(importMetaUrl).pathname), "helloFs.json"),
               "utf-8",

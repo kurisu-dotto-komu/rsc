@@ -3,7 +3,7 @@ import { ComponentProps } from "react";
 import { Code as BrightCode, BrightProps } from "bright";
 import clsx from "clsx";
 
-import { Tab } from "./tab";
+import TabBox, { type ColorType, type TabItem } from "./tabBox";
 
 type BrightCodeProps = ComponentProps<typeof BrightCode>;
 
@@ -21,27 +21,20 @@ export default function Code({
   light,
   code,
   children,
+  color,
   inline,
-  label,
-  labelRight,
+  tabs,
   className,
   ...props
 }: BrightCodeProps & {
   light?: boolean;
   inline?: boolean;
   className?: string;
-  label?: string;
-  labelRight?: string;
+  tabs?: TabItem[];
+  color?: ColorType;
 }) {
-  // const
   return (
-    <div>
-      {(label || labelRight) && (
-        <div className="mx-2 flex items-center select-none">
-          {label && <Tab>{label}</Tab>}
-          {labelRight && <Tab className="ml-auto">{labelRight}</Tab>}
-        </div>
-      )}
+    <TabBox tabs={tabs || []} color={color} className={clsx("my-0", className)} slim>
       <BrightCode
         lang={lang ?? "tsx"}
         theme={light ? lightTheme : defaultTheme}
@@ -49,8 +42,7 @@ export default function Code({
         className={clsx(
           "not-prose rounded-lg",
           inline ? "inline-block" : "",
-          light && "border-1 border-gray-200",
-          className,
+          // light && "border-1 border-gray-200",
         )}
         style={inline ? { ...styleOverrides, display: "inline-block" } : styleOverrides}
         extensions={
@@ -71,7 +63,7 @@ export default function Code({
       >
         {children ?? code?.trim()}
       </BrightCode>
-    </div>
+    </TabBox>
   );
 }
 

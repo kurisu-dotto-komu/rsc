@@ -6,7 +6,7 @@ import Users from "#/components/users";
 export default async function NoCacheReactServer() {
   const users = await getSampleData(3);
   return (
-    <Border server name="NoCacheReactServer" className="flex flex-col gap-2">
+    <Border server name="NoCacheReactServer">
       <Users users={users} compact />
     </Border>
   );

@@ -31,8 +31,7 @@ export default function ContextPage() {
       </Readable>
       <div className="grid gap-4 md:grid-cols-2">
         <Code
-          label="layout.tsx"
-          lineNumbers
+          tabs={["layout.tsx"]}
           code={`
 import ThemeProvider from './theme-provider'
  
@@ -48,8 +47,7 @@ export default function RootLayout({ children }) {
 `}
         />
         <Code
-          label="themeProvider.tsx"
-          lineNumbers
+          tabs={["themeProvider.tsx"]}
           code={`
 'use client'; // opt-out of RSC
  

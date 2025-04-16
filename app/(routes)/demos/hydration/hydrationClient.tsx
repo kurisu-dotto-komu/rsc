@@ -5,7 +5,7 @@ import Border from "#/components/border";
 export default function HydrationClient() {
   return (
     <Border client name="HydrationClient">
-      <code>use client</code> components will always hydrate.
+      Client components will always hydrate (whether they&apos;re interactive or not).
     </Border>
   );
 }

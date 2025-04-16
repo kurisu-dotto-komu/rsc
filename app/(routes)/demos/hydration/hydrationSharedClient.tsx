@@ -6,7 +6,7 @@ import HydrationShared from "./hydrationShared";
 
 export default function HydrationSharedClient() {
   return (
-    <Border client name="HydrationSharedClient">
+    <Border client>
       <HydrationShared />
     </Border>
   );

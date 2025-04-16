@@ -33,8 +33,8 @@ export default async function FetchingPage() {
 
       <div className="grid grid-cols-2 gap-4">
         <Code
-          label="Fetching Directly"
-          labelRight="Good! 👍"
+          color="green"
+          tabs={["Fetching Directly", "Good! 👍"]}
           code={`
 // do this
 export async function FetchDirect() {
@@ -51,8 +51,8 @@ export async function FetchSQL() {
 `}
         />
         <Code
-          label="Fetching from internal API"
-          labelRight="Bad! 👎"
+          color="red"
+          tabs={["Fetching from internal API", "Bad! 👎"]}
           code={`
 // don't do this            
 export async function FetchAPI() {
