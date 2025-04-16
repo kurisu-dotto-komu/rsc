@@ -15,6 +15,7 @@ export default function EnvironmentPage() {
           browser, they have access to different APIs and properties.
         </Info>
       </Readable>
+
       <h2 className="text-center text-2xl font-bold">React Environment Values</h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <EnvironmentServer />

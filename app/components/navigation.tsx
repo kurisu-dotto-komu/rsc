@@ -57,7 +57,7 @@ export const demos: DemoItem[] = [
     icon: RiCheckboxMultipleBlankFill,
     description: "The three types of components in RSC: Server, Client, and Shared",
     signOffMessage:
-      "Let's go into detail about the differences between client and server components, and when to use them.",
+      "Next, let's go into detail about the differences between client and server components, and when to use them.",
   },
   {
     name: "Environments",
@@ -65,7 +65,7 @@ export const demos: DemoItem[] = [
     icon: RiTableView,
     description: "Server and client environment differences",
     signOffMessage:
-      "Let's look at the different environments where server and client components run.",
+      "Next, let's look at the different environments where server and client components run.",
   },
   {
     name: "Boundaries",
@@ -80,7 +80,7 @@ export const demos: DemoItem[] = [
     icon: RiGitMergeLine,
     description: "Passing components between server and client boundaries",
     signOffMessage:
-      "Let's see how we can construct component trees that contain React Server Components.",
+      "Next, let's see how we can construct component trees that contain React Server Components.",
   },
   {
     name: "Context",
@@ -110,7 +110,7 @@ export const demos: DemoItem[] = [
     icon: RiHourglassLine,
     description: "Streaming RSCs using suspense boundaries",
     signOffMessage:
-      "Let's see how much of an effect this can have when chaining multiple Suspense components.",
+      "Next, let's see how much of an effect this can have when chaining multiple Suspense components.",
   },
   {
     name: "Waterfall",

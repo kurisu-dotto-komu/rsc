@@ -208,17 +208,15 @@ export default function KindComparisonTable() {
   const columns = getColumns();
 
   return (
-    <div className="mx-auto">
-      <>
-        <Table
-          data={comparisonData}
-          columns={columns}
-          headerClassName="bg-gray-50 text-lg font-medium px-6 py-3 text-left"
-          rowClassName="border-t border-gray-100 hover:bg-gray-50"
-          className="rounded-lg border border-gray-200"
-          cellClassName="px-3 py-3"
-        />
-      </>
+    <div className="mx-auto rounded-lg border border-gray-200">
+      <Table
+        data={comparisonData}
+        columns={columns}
+        headerClassName="bg-gray-50 text-lg font-medium px-6 py-3 text-left"
+        rowClassName="border-t border-gray-100 hover:bg-gray-50"
+        className="!"
+        cellClassName="px-3 py-3"
+      />
     </div>
   );
 }
