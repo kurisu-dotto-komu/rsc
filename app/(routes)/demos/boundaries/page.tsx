@@ -31,11 +31,11 @@ import SharedChild from "./sharedChild";
 export default function BoundaryServer() {
   return (
     <div>
-      {/* Server component */}
+      {/* Server Component */}
       <ServerAsync />
-      {/* Becomes a server component */}
+      {/* Becomes a Server Component */}
       <SharedChild />
-      {/* Client component boundary */}
+      {/* Introduces a Network Boundary */}
       <BoundaryClient />
     </div>
   );
@@ -53,11 +53,11 @@ import SharedChild from "./sharedChild";
 export default function BoundaryClient() {
   return (
     <div>
-      {/* Server component */}
+      {/* Client Component */}
       <Counter />
-      {/* Becomes a client component */}
+      {/* Becomes a Client Component */}
       <SharedChild />
-      {/* Cannot import server component */}
+      {/* Cannot import Server Components */}
       {/* <ServerAsync /> */}
     </div>
   );

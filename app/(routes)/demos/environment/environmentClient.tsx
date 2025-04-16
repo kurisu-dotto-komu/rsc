@@ -5,47 +5,21 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 import Border from "#/components/border";
+import Spinner from "#/components/spinner";
 
-import jsonImport from "./hello.json";
-import Properties from "./properties";
+import EnvironmentValues from "./environmentValues";
 
-export default function EnvironmentClient() {
-  const [usedEffect, setUsedEffect] = useState(false);
-  const [jsonImportAsync, setJsonImportAsync] = useState<any>(undefined);
-  const [error, setError] = useState<Error | null>(null);
+export default function EnvironmentClient({ filterNextJs }: { filterNextJs?: boolean }) {
+  // prevent hydration errors
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setUsedEffect(true);
-    (async () => {
-      const json = await import("./helloAsync.json");
-      setJsonImportAsync(json.default);
-      // try {
-      //   const jsonRead = await fs.readFile("./helloFs.json", "utf-8");
-      // } catch (error) {
-      //   setError(error as Error);
-      // }
-    })();
+    setMounted(true);
   }, []);
 
-  // TODO use this canonical check instead of window.
   return (
     <Border client name="EnvironmentClient">
-      <Properties
-        data={{
-          hrefLocation: typeof location !== "undefined" ? location.href : undefined,
-          userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
-          secret: process.env.MY_SECRET,
-          cwd: process.cwd(),
-          __dirname,
-          hasWindow: typeof window !== "undefined",
-          usedEffect,
-          importMetaUrl: import.meta.url,
-          jsonImport,
-          jsonImportAsync,
-          jsonRead: undefined,
-          // jsonRead: JSON.parse(await fs.readFile(jsonPath, "utf-8")),
-        }}
-      />
-      {error && <div className="text-red-500">{error.message}</div>}
+      {!mounted && <Spinner />}
+      {mounted && <EnvironmentValues filterNextJs={filterNextJs} />}
     </Border>
   );
 }

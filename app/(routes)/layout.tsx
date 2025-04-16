@@ -1,7 +1,15 @@
 import "#/globals.css";
 
+import { Metadata } from "next";
+
 import Container from "#/components/container";
 import Menu from "#/components/navbar";
+
+export const metadata: Metadata = {
+  title: "RSC Demos",
+  description:
+    "A collection of React Server Component demonstrations showcasing the power and capabilities of Next.js RSC architecture.",
+};
 
 export default function RootLayout({
   children,

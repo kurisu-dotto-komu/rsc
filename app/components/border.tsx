@@ -12,7 +12,7 @@ export default function Border({
   className,
   readable,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   client?: boolean;
   server?: boolean;
   name?: string;

@@ -1,3 +1,4 @@
+import Border from "#/components/border";
 import Code from "#/components/code";
 import Highlight from "#/components/highlight";
 import Info from "#/components/info";
@@ -15,19 +16,23 @@ export default async function FetchingPage() {
     <>
       <Readable>
         <Info>
-          React Server Components should fetch directly from function on the server. Instead of
-          calling interal APIs, call data-getter functions directly.
+          React Server Components should fetch directly from functions on the server when possible.
+          Instead of calling interal APIs, call data-getter functions directly.
         </Info>
         <p>
           Both of the following RSCs fetch the same data, and they both (sort of) work, but{" "}
           <Highlight>
-            it is an anti-pattern to use an internal API to fetch data in an RSC
+            it is an anti-pattern to use an <b>internal</b> API to fetch data in an RSC
           </Highlight>
-          .
+          . Of course, if the API is <b>external</b>, have at it!
         </p>
         <div className="grid grid-cols-2 gap-4">
-          <FetchDirect />
-          <FetchAPI />
+          <Border server name="FetchDirect">
+            <FetchDirect />
+          </Border>
+          <Border server name="FetchAPI">
+            <FetchAPI />
+          </Border>
         </div>
       </Readable>
 

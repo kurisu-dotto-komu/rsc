@@ -60,7 +60,7 @@ export const demos: DemoItem[] = [
     path: "/demos/kinds",
     icon: RiCheckboxMultipleBlankFill,
     description: "The types of components in RSC",
-    color: "blue",
+    color: "green",
   },
   {
     name: "Environments",
@@ -158,7 +158,7 @@ export const demos: DemoItem[] = [
     path: "/demos/security",
     icon: RiLockLine,
     description: "Security best practices and considerations",
-    color: "red",
+    disabled: true,
   },
   {
     name: "Sessions",
