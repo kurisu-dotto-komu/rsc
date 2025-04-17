@@ -163,7 +163,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <span>
               <Link href="/" className="text-lg font-semibold">
-                ⚛ RSC Demos
+                RSC Demos
               </Link>
             </span>
           </div>
