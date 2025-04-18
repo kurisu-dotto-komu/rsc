@@ -50,7 +50,7 @@ export default function KindsPage() {
             code={`
 import fs from "fs";
 
-// woah, fs is available!
+// whoa, fs is available!
 export default function ServerSync() {
   // we can read the filesystem inside Server Component!
   const data = fs.readFileSync("app/db/test.json", "utf8");
@@ -70,7 +70,7 @@ export default function ServerSync() {
             code={`
 import fs from "fs/promises";
 
-// woah, it's async!
+// whoa, it's async!
 export default async function ServerAsync() {
   // we can await promises inside Server Components
   const data = await fs.readFile("app/db/test.json", "utf8");

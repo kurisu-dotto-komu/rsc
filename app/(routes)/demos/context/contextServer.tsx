@@ -7,7 +7,7 @@ export default async function ContextServer() {
   return (
     <Border server>
       <AsyncServer />
-      <div>Marvel, as I import these client components:</div>
+      <div>Marvel at how I import these client components</div>
       <div className="grid grid-cols-2 gap-4">
         <ContextCounterButton />
         <ContextCounterButton />

@@ -30,7 +30,7 @@ export default function InterweavingPage() {
           code={`            
 // default server network boundary
 
-// becuase these are IMPORTED here...
+// because these are IMPORTED here...
 import ServerAsync from "./serverAsync";
 import Shared from "./shared";
 
@@ -63,7 +63,7 @@ export default function Page() {
           code={`            
 "use client"; // client network boundary
 
-// becuase the shared component is imported here...
+// because the shared component is imported here...
 import Shared from "./shared";
 
 export default function Client({

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "RSC Demos",
   description:
     "A collection of React Server Component demonstrations showcasing the power and capabilities of Next.js RSC architecture.",
+  alternates: {
+    canonical: "https://rsc.xn--pckua0m.xn--tckwe",
+  },
 };
 
 export const viewport: Viewport = {

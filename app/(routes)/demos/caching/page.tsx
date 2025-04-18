@@ -13,8 +13,8 @@ export default function CachingPage() {
     <>
       <Readable>
         <Info>
-          Next.js has it&apos;s own caching system that handles caching at the route and fetch
-          level. This page focuses on React&apos;s built-in Server Component level caching.
+          Next.js has its own caching system that handles caching at the route and fetch level. This
+          page focuses on React&apos;s built-in Server Component level caching.
         </Info>
 
         <Markdown>{`

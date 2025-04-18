@@ -13,7 +13,9 @@ export default function BoundariesPage() {
         <Info>
           In RSC,{" "}
           <Highlight>
-            the <b>imported</b> (grand) children of client components all become client components
+            files that start with &quot;use client&quot; are bundled for the browser, and any React
+            components they import must also be client‑safe; importing a Server Component here
+            triggers a compile‑time error
           </Highlight>
           . When <code>&quot;use client&quot;</code> appears, a &quot;network boundary&quot; is
           created in the component tree.

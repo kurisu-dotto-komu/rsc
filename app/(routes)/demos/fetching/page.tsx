@@ -20,7 +20,7 @@ export default async function FetchingPage() {
       <Readable>
         <Info>
           React Server Components should fetch directly from functions on the server when possible.
-          Instead of calling interal APIs, call data-getter functions directly.
+          Instead of calling internal APIs, call data-getter functions directly.
         </Info>
         <p>
           Both of the following RSCs fetch the same data, and they both (sort of) work, but{" "}

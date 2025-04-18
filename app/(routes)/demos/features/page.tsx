@@ -84,7 +84,7 @@ export default function FeaturesPage() {
           rendered on the server and one on the client. Notice how the server component appears
           instantly with the data, while the client component needs to fetch data after mounting.
         </p>
-        <p>Even if you disable Javascript, the the Server Component is still shown!</p>
+        <p>Even if you disable JavaScript, the Server Component is still shown!</p>
       </Readable>
 
       <div className="grid gap-4 md:grid-cols-2">
