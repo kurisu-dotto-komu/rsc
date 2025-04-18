@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { RiArrowRightSLine } from "react-icons/ri";
+import { RiArrowRightSLine, RiGithubFill } from "react-icons/ri";
 
 export default function HomePage() {
   return (
@@ -10,6 +10,12 @@ export default function HomePage() {
         <Link href="/demos/features" className="btn btn-primary">
           Let&apos;s get started
           <RiArrowRightSLine className="text-sm opacity-80" />
+        </Link>
+      </div>
+      <div className="mt-10">
+        <Link className="btn" href="https://github.com/kurisu-dotto-komu/rsc" target="_blank">
+          <RiGithubFill />
+          Github Repo
         </Link>
       </div>
     </div>
